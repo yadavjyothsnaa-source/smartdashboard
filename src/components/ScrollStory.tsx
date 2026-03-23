@@ -29,8 +29,8 @@ export default function ScrollStory() {
           transition={{ duration: 0.8 }}
           className="flex flex-col items-center justify-center max-w-4xl text-center"
         >
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-4 drop-shadow-2xl font-sans">
-            SmartDashboard
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-4 drop-shadow-2xl font-sans max-w-5xl mx-auto leading-tight">
+            SMART BUSINESS ANALYTICS DASHBOARD
           </h1>
           <p className="text-2xl md:text-3xl font-medium text-white/90 mb-2 drop-shadow-lg font-sans">
             Intelligent Data Analytics.
