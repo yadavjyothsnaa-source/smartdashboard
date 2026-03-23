@@ -38,56 +38,56 @@ export default function ScrollStory() {
         {/* HERO */}
         <motion.div style={{ opacity: heroOpacity, y: heroY }} className="absolute inset-0 flex flex-col items-center justify-center pt-32 z-10 opacity-100">
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-4 drop-shadow-2xl font-sans">
-            Sony WH‑1000XM6
+            SmartDashboard
           </h1>
           <p className="text-2xl md:text-3xl font-medium text-white/90 mb-2 drop-shadow-lg font-sans">
-            Silence, perfected.
+            Intelligent Data Analytics.
           </p>
           <p className="text-lg text-white/60 drop-shadow-md font-sans">
-            Flagship wireless noise cancelling, re‑engineered for a world that never stops.
+            Role-based insights and ML predictions for modern data teams.
           </p>
         </motion.div>
 
-        {/* ENGINEERING */}
+        {/* ROLES */}
         <motion.div style={{ opacity: engOpacity, x: engX }} className="absolute inset-0 flex items-center justify-start px-12 md:px-24 z-10 opacity-0">
           <div className="max-w-md">
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white/90 mb-6 drop-shadow-lg font-sans">
-              Precision-engineered for silence.
+              Tailored for your role.
             </h2>
             <p className="text-lg text-white/60 mb-4 drop-shadow-md leading-relaxed font-sans">
-              Custom drivers, sealed acoustic chambers, and optimized airflow deliver studio-grade clarity.
+              <strong className="text-white">Data Analysts</strong> handle raw data, ETL processes, and run ML model predictions with full access control.
             </p>
             <p className="text-lg text-white/60 drop-shadow-md leading-relaxed font-sans">
-              Every component is tuned for balance, power, and comfort—hour after hour.
+              <strong className="text-white">Admins</strong> focus purely on high-level decision making through a curated, smart view.
             </p>
           </div>
         </motion.div>
 
-        {/* NOISE CANCELLING */}
+        {/* CHAT AND NOTIFICATIONS */}
         <motion.div style={{ opacity: ncOpacity, x: ncX }} className="absolute inset-0 flex items-center justify-end px-12 md:px-24 z-10 opacity-0">
           <div className="max-w-md text-right">
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white/90 mb-6 drop-shadow-lg font-sans">
-              Adaptive noise cancelling, redefined.
+              Collaborate in real-time.
             </h2>
             <ul className="text-lg text-white/60 space-y-4 drop-shadow-md leading-relaxed list-none font-sans">
-              <li>Multi-microphone array listens in every direction.</li>
-              <li>Real-time noise analysis adjusts to your environment.</li>
-              <li>Your music stays pure—planes, trains, and crowds fade away.</li>
+              <li>Integrated messaging directly connects Analysts and Admins.</li>
+              <li>Instantly ask questions like "Why did sales drop?"</li>
+              <li>Automated system alerts for new uploads, anomaly detection, and ready predictions.</li>
             </ul>
           </div>
         </motion.div>
 
-        {/* SOUND */}
+        {/* VISUALIZATION */}
         <motion.div style={{ opacity: soundOpacity, x: soundX }} className="absolute inset-0 flex items-center justify-start px-12 md:px-24 z-10 opacity-0">
           <div className="max-w-md">
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white/90 mb-6 drop-shadow-lg font-sans">
-              Immersive, lifelike sound.
+              Advanced Visualization.
             </h2>
             <p className="text-lg text-white/60 mb-4 drop-shadow-md leading-relaxed font-sans">
-              High-performance drivers unlock detail, depth, and texture in every track.
+              From data-driven to insight-driven. Analysts view basic functional charts to validate inputs.
             </p>
             <p className="text-lg text-white/60 drop-shadow-md leading-relaxed font-sans">
-              AI-enhanced upscaling restores clarity to compressed audio, so every note feels alive.
+              Admins unlock rich visual forecasts, KPI cards, and trend comparisons powered by AI.
             </p>
           </div>
         </motion.div>
@@ -96,21 +96,21 @@ export default function ScrollStory() {
         <motion.div style={{ opacity: ctaOpacity, y: ctaY }} className="absolute inset-0 flex flex-col items-center justify-center z-20 pointer-events-auto opacity-0">
           <div className="text-center bg-[#050505]/40 backdrop-blur-md p-12 rounded-3xl border border-white/5 mx-6 shadow-2xl">
             <h2 className="text-5xl md:text-6xl font-bold tracking-tight text-white mb-4 drop-shadow-2xl font-sans">
-              Hear everything. Feel nothing else.
+              Deploy your data today.
             </h2>
             <p className="text-xl text-white/70 mb-10 drop-shadow-lg font-sans">
-              WH‑1000XM6. Designed for focus, crafted for comfort.
+              Centralized SQLite architecture. Seamless ETL pipelines.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <button className="px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-[#0050FF] to-[#00D6FF] rounded-full hover:shadow-[0_0_20px_rgba(0,214,255,0.4)] transition-all duration-300 transform hover:scale-105 pointer-events-auto cursor-pointer font-sans">
-                Experience WH‑1000XM6
-              </button>
-              <a href="#specs" className="text-lg font-medium text-white/70 hover:text-white transition-colors underline underline-offset-4 decoration-white/30 hover:decoration-white pointer-events-auto font-sans">
-                See full specs
+              <a href="/login" className="px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-[#0050FF] to-[#00D6FF] rounded-full hover:shadow-[0_0_20px_rgba(0,214,255,0.4)] transition-all duration-300 transform hover:scale-105 pointer-events-auto cursor-pointer font-sans inline-block">
+                Enter Dashboard System
+              </a>
+              <a href="#database-schema" className="text-lg font-medium text-white/70 hover:text-white transition-colors underline underline-offset-4 decoration-white/30 hover:decoration-white pointer-events-auto font-sans">
+                View Database Schema
               </a>
             </div>
             <p className="mt-8 text-sm text-white/40 max-w-sm mx-auto font-sans">
-              Engineered for airports, offices, and everything in between.
+              A comprehensive system tailored explicitly for your viva presentation.
             </p>
           </div>
         </motion.div>

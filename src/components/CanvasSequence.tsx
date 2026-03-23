@@ -54,9 +54,6 @@ const CanvasSequence = () => {
         ctx.fillStyle = "#050505";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         
-        ctx.imageSmoothingEnabled = true;
-        ctx.imageSmoothingQuality = "high";
-        
         // Draw image covering the canvas
         const canvasRatio = canvas.width / canvas.height;
         const imgRatio = img.naturalWidth / img.naturalHeight;
@@ -109,7 +106,7 @@ const CanvasSequence = () => {
       </div>
       <canvas
         ref={canvasRef}
-        className="w-full h-full object-cover blur-[6px] brightness-[0.35] contrast-125 scale-105"
+        className="w-full h-full object-cover"
       />
       {/* Fallback gradient behind canvas just in case */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#050815_0%,_#050505_100%)] opacity-50 z-[-1]"></div>
