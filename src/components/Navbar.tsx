@@ -29,9 +29,15 @@ export default function Navbar() {
         <a href="#ml" className="hover:text-white transition-colors">ML Predictions</a>
       </div>
 
-      <a href="/login" className="px-5 py-2 text-sm font-semibold text-white bg-transparent border border-[#00D6FF]/30 rounded-full hover:border-[#00D6FF] hover:shadow-[0_0_15px_rgba(0,214,255,0.3)] transition-all duration-300">
+      <button 
+        onClick={(e) => {
+          e.preventDefault();
+          document.getElementById('login')?.scrollIntoView({ behavior: 'smooth' });
+        }}
+        className="px-5 py-2 text-sm font-semibold text-white bg-transparent border border-[#00D6FF]/30 rounded-full hover:border-[#00D6FF] hover:shadow-[0_0_15px_rgba(0,214,255,0.3)] transition-all duration-300"
+      >
         Login / System
-      </a>
+      </button>
     </motion.nav>
   );
 }

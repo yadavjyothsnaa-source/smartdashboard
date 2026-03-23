@@ -15,9 +15,9 @@ export default function LoginForm() {
   };
 
   return (
-    <div id="login" className="w-full max-w-md mx-auto bg-[#0a0a0c] border border-white/10 rounded-2xl p-8 shadow-2xl relative z-20">
+    <div id="login" className="w-full max-w-md mx-auto bg-black/20 backdrop-blur-xl border border-white/10 rounded-3xl p-10 shadow-2xl relative z-20">
       <div className="text-center mb-8">
-        <h2 className="text-3xl font-bold text-white mb-2">Access System</h2>
+        <h2 className="text-3xl font-bold text-white mb-2 tracking-tight">Access System</h2>
         <p className="text-white/60 text-sm">Enter credentials to proceed to the Dashboard.</p>
       </div>
 

@@ -6,15 +6,21 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="relative w-full">
+    <main className="relative w-full bg-black">
       <Navbar />
+      
+      {/* Background Canvas fixed to screen */}
       <CanvasSequence />
+      
+      {/* Scrollable Content overlaying the canvas */}
       <ScrollStory />
       
-      {/* Static Footer Section with Login Form */}
-      <div className="relative z-20 bg-[#050505] flex flex-col items-center pt-32 shadow-[0_-20px_50px_rgba(5,5,5,1)]">
-        <LoginForm />
-        <div className="mt-20 w-full">
+      {/* Login and Footer cleanly attached to flow with transparent backgrounds */}
+      <div className="relative z-10 w-full min-h-screen flex flex-col items-center justify-center pt-32 pb-12">
+        <div className="w-full max-w-md mx-auto px-4 z-20 relative">
+           <LoginForm />
+        </div>
+        <div className="mt-auto w-full pt-32 z-20 relative">
           <Footer />
         </div>
       </div>

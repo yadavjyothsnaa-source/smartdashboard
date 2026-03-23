@@ -100,13 +100,13 @@ const CanvasSequence = () => {
   }, []);
 
   return (
-    <div className="sticky top-0 h-screen w-full bg-[#050505] overflow-hidden z-0">
+    <div className="fixed inset-0 w-full h-full z-0 pointer-events-none bg-black">
       <canvas
         ref={canvasRef}
         className="w-full h-full object-cover"
       />
       {/* Dark overlay to make text highly readable and background not blurry/distracting */}
-      <div className="absolute inset-0 bg-black/75 pointer-events-none z-10"></div>
+      <div className="absolute inset-0 bg-black/75 pointer-events-none"></div>
     </div>
   );
 };
