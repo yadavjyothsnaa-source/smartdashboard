@@ -1,55 +1,57 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 export default function ScrollStory() {
+  const [isMounted, setIsMounted] = useState(false);
+  useEffect(() => setIsMounted(true), []);
+
   const container = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start start", "end end"]
   });
 
-  // Calculate Opacity and Transforms based on progress [0-1]
-  // Hero (0 - 15%)
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.05, 0.1, 0.15], [1, 1, 0, 0]);
-  const heroY = useTransform(scrollYProgress, [0, 0.15], [0, -50]);
+  // Hero (0 - 20%)
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.05, 0.15, 0.2], [1, 1, 0, 0]);
+  const heroY = useTransform(scrollYProgress, [0, 0.2], [0, -50]);
 
-  // Engineering (15 - 40%)
-  const engOpacity = useTransform(scrollYProgress, [0.1, 0.2, 0.35, 0.45], [0, 1, 1, 0]);
-  const engX = useTransform(scrollYProgress, [0.1, 0.2], [-50, 0]);
+  // Roles (20 - 45%) - LEFT
+  const engOpacity = useTransform(scrollYProgress, [0.15, 0.25, 0.4, 0.45], [0, 1, 1, 0]);
+  const engX = useTransform(scrollYProgress, [0.15, 0.25], [-50, 0]);
 
-  // Noise Cancelling (40 - 65%)
-  const ncOpacity = useTransform(scrollYProgress, [0.35, 0.45, 0.6, 0.7], [0, 1, 1, 0]);
-  const ncX = useTransform(scrollYProgress, [0.35, 0.45], [50, 0]);
+  // Chat (45 - 70%) - RIGHT
+  const ncOpacity = useTransform(scrollYProgress, [0.4, 0.5, 0.65, 0.7], [0, 1, 1, 0]);
+  const ncX = useTransform(scrollYProgress, [0.4, 0.5], [50, 0]);
 
-  // Sound & Upscaling (65 - 85%)
-  const soundOpacity = useTransform(scrollYProgress, [0.6, 0.7, 0.8, 0.9], [0, 1, 1, 0]);
-  const soundX = useTransform(scrollYProgress, [0.6, 0.7], [-50, 0]);
+  // Visualization (70 - 95%) - LEFT
+  const soundOpacity = useTransform(scrollYProgress, [0.65, 0.75, 0.9, 0.95], [0, 1, 1, 0]);
+  const soundX = useTransform(scrollYProgress, [0.65, 0.75], [-50, 0]);
 
-  // Reassembly & CTA (85 - 100%)
-  const ctaOpacity = useTransform(scrollYProgress, [0.8, 0.9, 1], [0, 1, 1]);
-  const ctaY = useTransform(scrollYProgress, [0.8, 0.9], [50, 0]);
+  if (!isMounted) {
+    return <div className="relative w-full h-[400vh] -mt-[100vh]"></div>;
+  }
 
   return (
-    <div ref={container} className="relative w-full h-[500vh] -mt-[100vh]">
-      <div className="sticky top-0 left-0 w-full h-screen pointer-events-none flex flex-col justify-center overflow-hidden">
+    <div ref={container} className="relative w-full h-[400vh] -mt-[100vh]">
+      <div className="sticky top-0 left-0 w-full h-screen pointer-events-none flex flex-col justify-center overflow-hidden z-10">
         
         {/* HERO */}
-        <motion.div style={{ opacity: heroOpacity, y: heroY }} className="absolute inset-0 flex flex-col items-center justify-center pt-32 z-10 opacity-100">
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-4 drop-shadow-2xl font-sans">
+        <motion.div style={{ opacity: heroOpacity, y: heroY }} className="absolute inset-0 flex flex-col items-center justify-center pt-32 z-10">
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-4 drop-shadow-2xl font-sans text-center px-4">
             SmartDashboard
           </h1>
-          <p className="text-2xl md:text-3xl font-medium text-white/90 mb-2 drop-shadow-lg font-sans">
+          <p className="text-2xl md:text-3xl font-medium text-white/90 mb-2 drop-shadow-lg font-sans text-center px-4">
             Intelligent Data Analytics.
           </p>
-          <p className="text-lg text-white/60 drop-shadow-md font-sans">
+          <p className="text-lg text-white/60 drop-shadow-md font-sans text-center px-4 max-w-xl">
             Role-based insights and ML predictions for modern data teams.
           </p>
         </motion.div>
 
         {/* ROLES */}
-        <motion.div style={{ opacity: engOpacity, x: engX }} className="absolute inset-0 flex items-center justify-start px-12 md:px-24 z-10 opacity-0">
+        <motion.div style={{ opacity: engOpacity, x: engX }} className="absolute inset-0 flex items-center justify-start px-12 md:px-24 z-10">
           <div className="max-w-md">
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white/90 mb-6 drop-shadow-lg font-sans">
               Tailored for your role.
@@ -64,7 +66,7 @@ export default function ScrollStory() {
         </motion.div>
 
         {/* CHAT AND NOTIFICATIONS */}
-        <motion.div style={{ opacity: ncOpacity, x: ncX }} className="absolute inset-0 flex items-center justify-end px-12 md:px-24 z-10 opacity-0">
+        <motion.div style={{ opacity: ncOpacity, x: ncX }} className="absolute inset-0 flex items-center justify-end px-12 md:px-24 z-10">
           <div className="max-w-md text-right">
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white/90 mb-6 drop-shadow-lg font-sans">
               Collaborate in real-time.
@@ -78,7 +80,7 @@ export default function ScrollStory() {
         </motion.div>
 
         {/* VISUALIZATION */}
-        <motion.div style={{ opacity: soundOpacity, x: soundX }} className="absolute inset-0 flex items-center justify-start px-12 md:px-24 z-10 opacity-0">
+        <motion.div style={{ opacity: soundOpacity, x: soundX }} className="absolute inset-0 flex items-center justify-start px-12 md:px-24 z-10">
           <div className="max-w-md">
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white/90 mb-6 drop-shadow-lg font-sans">
               Advanced Visualization.
@@ -88,29 +90,6 @@ export default function ScrollStory() {
             </p>
             <p className="text-lg text-white/60 drop-shadow-md leading-relaxed font-sans">
               Admins unlock rich visual forecasts, KPI cards, and trend comparisons powered by AI.
-            </p>
-          </div>
-        </motion.div>
-
-        {/* CTA */}
-        <motion.div style={{ opacity: ctaOpacity, y: ctaY }} className="absolute inset-0 flex flex-col items-center justify-center z-20 pointer-events-auto opacity-0">
-          <div className="text-center bg-[#050505]/40 backdrop-blur-md p-12 rounded-3xl border border-white/5 mx-6 shadow-2xl">
-            <h2 className="text-5xl md:text-6xl font-bold tracking-tight text-white mb-4 drop-shadow-2xl font-sans">
-              Deploy your data today.
-            </h2>
-            <p className="text-xl text-white/70 mb-10 drop-shadow-lg font-sans">
-              Centralized SQLite architecture. Seamless ETL pipelines.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <a href="/login" className="px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-[#0050FF] to-[#00D6FF] rounded-full hover:shadow-[0_0_20px_rgba(0,214,255,0.4)] transition-all duration-300 transform hover:scale-105 pointer-events-auto cursor-pointer font-sans inline-block">
-                Enter Dashboard System
-              </a>
-              <a href="#database-schema" className="text-lg font-medium text-white/70 hover:text-white transition-colors underline underline-offset-4 decoration-white/30 hover:decoration-white pointer-events-auto font-sans">
-                View Database Schema
-              </a>
-            </div>
-            <p className="mt-8 text-sm text-white/40 max-w-sm mx-auto font-sans">
-              A comprehensive system tailored explicitly for your viva presentation.
             </p>
           </div>
         </motion.div>

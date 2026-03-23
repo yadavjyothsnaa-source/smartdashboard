@@ -101,15 +101,12 @@ const CanvasSequence = () => {
 
   return (
     <div className="sticky top-0 h-screen w-full bg-[#050505] overflow-hidden z-0">
-      <div className="absolute top-20 left-4 z-50 text-white bg-black/50 p-2 font-mono text-sm border border-white/20">
-        Debug: Loaded {loadedCount} / {FRAME_COUNT} frames
-      </div>
       <canvas
         ref={canvasRef}
         className="w-full h-full object-cover"
       />
-      {/* Fallback gradient behind canvas just in case */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#050815_0%,_#050505_100%)] opacity-50 z-[-1]"></div>
+      {/* Dark overlay to make text highly readable and background not blurry/distracting */}
+      <div className="absolute inset-0 bg-black/75 pointer-events-none z-10"></div>
     </div>
   );
 };
