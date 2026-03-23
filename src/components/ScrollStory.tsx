@@ -1,10 +1,24 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 export default function ScrollStory() {
+  const [isMounted, setIsMounted] = useState(false);
+  
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return (
+      <div className="relative w-full z-10 flex flex-col items-center justify-center min-h-[400vh]">
+      </div>
+    );
+  }
+
   return (
-    <div className="relative w-full z-10 flex flex-col">
+    <div className="relative w-full z-10 flex flex-col overflow-hidden">
       
       {/* HERO */}
       <section className="h-screen w-full flex flex-col items-center justify-center px-4 snap-center">

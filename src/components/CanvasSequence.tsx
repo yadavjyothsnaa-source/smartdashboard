@@ -106,7 +106,7 @@ const CanvasSequence = () => {
         className="w-full h-full object-cover"
       />
       {/* Dark overlay to make text highly readable and background not blurry/distracting */}
-      <div className="absolute inset-0 bg-black/75 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-black/40 pointer-events-none"></div>
     </div>
   );
 };
