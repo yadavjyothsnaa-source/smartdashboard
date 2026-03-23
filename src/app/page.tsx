@@ -16,11 +16,11 @@ export default function Home() {
       <ScrollStory />
       
       {/* Login and Footer cleanly attached to flow with transparent backgrounds */}
-      <div className="relative z-10 w-full flex flex-col items-center pt-32">
-        <div className="w-full max-w-md mx-auto px-4 z-20 relative mb-32">
+      <div className="relative z-10 w-full min-h-screen flex flex-col pt-20">
+        <div className="flex-1 flex items-center justify-center w-full px-4 z-20 relative pb-12">
            <LoginForm />
         </div>
-        <div className="w-full z-20 relative">
+        <div className="w-full z-20 relative mt-auto">
           <Footer />
         </div>
       </div>
