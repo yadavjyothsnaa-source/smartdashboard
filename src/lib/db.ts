@@ -19,8 +19,9 @@ function initTables() {
   db.exec(`
     CREATE TABLE IF NOT EXISTS users (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
+      user_id TEXT UNIQUE NOT NULL,
       name TEXT NOT NULL,
-      email TEXT UNIQUE NOT NULL,
+      email TEXT DEFAULT '',
       password TEXT NOT NULL,
       role TEXT NOT NULL CHECK(role IN ('analyst','admin'))
     );
@@ -75,9 +76,9 @@ function initTables() {
   const count = db.prepare('SELECT COUNT(*) as c FROM users').get() as { c: number };
   if (count.c === 0) {
     const hash = (p: string) => bcrypt.hashSync(p, 10);
-    const insert = db.prepare('INSERT INTO users (name, email, password, role) VALUES (?, ?, ?, ?)');
-    insert.run('Data Analyst', 'analyst@demo.com', hash('analyst123'), 'analyst');
-    insert.run('Company Admin', 'admin@demo.com', hash('admin123'), 'admin');
+    const insert = db.prepare('INSERT INTO users (user_id, name, password, role) VALUES (?, ?, ?, ?)');
+    insert.run('Jyothsna_DA_D1', 'Jyothsna', hash('RhelpJ'), 'analyst');
+    insert.run('Rang_Ad_A1', 'Ranganatha', hash('RhelpJ'), 'admin');
   }
 }
 

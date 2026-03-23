@@ -21,22 +21,24 @@ export default function LoginForm() {
     <div id="login" className="w-full max-w-md mx-auto bg-black/20 backdrop-blur-xl border border-white/10 rounded-3xl p-10 shadow-2xl relative z-20">
       <div className="text-center mb-8">
         <h2 className="text-3xl font-bold text-white mb-2 tracking-tight">Access System</h2>
-        <p className="text-white/60 text-sm">Sign in to proceed to your Dashboard.</p>
-        <div className="mt-3 p-2 bg-white/5 rounded-lg border border-white/10 text-xs text-white/40">
-          <p>Demo: <strong className="text-[#00D6FF]">analyst@demo.com</strong> / analyst123</p>
-          <p>Demo: <strong className="text-[#00D6FF]">admin@demo.com</strong> / admin123</p>
+        <p className="text-white/60 text-sm">Sign in using your User ID and password.</p>
+        <div className="mt-3 p-3 bg-white/5 rounded-lg border border-white/10 text-xs text-white/50 text-left space-y-1">
+          <p><strong className="text-[#00D6FF]">Analyst:</strong> Jyothsna_DA_D1</p>
+          <p><strong className="text-[#00D6FF]">Admin:</strong> Rang_Ad_A1</p>
+          <p className="text-white/30 mt-1">Both use the same password.</p>
         </div>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form onSubmit={handleSubmit} className="space-y-5">
         <div>
-          <label className="block text-sm font-medium text-white/80 mb-2">Email Address</label>
+          <label className="block text-sm font-medium text-white/80 mb-2">User ID</label>
           <input
-            name="email"
-            type="email"
+            name="user_id"
+            type="text"
             required
-            className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#00D6FF]/50 transition-colors"
-            placeholder="you@company.com"
+            autoComplete="username"
+            className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#00D6FF]/50 transition-colors placeholder-white/20"
+            placeholder="e.g. Jyothsna_DA_D1"
           />
         </div>
 
@@ -60,7 +62,7 @@ export default function LoginForm() {
         <button
           type="submit"
           disabled={isPending}
-          className="w-full py-3 mt-4 bg-gradient-to-r from-[#0050FF] to-[#00D6FF] text-white rounded-lg font-semibold hover:shadow-[0_0_20px_rgba(0,214,255,0.4)] transition-all duration-300 disabled:opacity-50"
+          className="w-full py-3 bg-gradient-to-r from-[#0050FF] to-[#00D6FF] text-white rounded-lg font-semibold hover:shadow-[0_0_20px_rgba(0,214,255,0.4)] transition-all duration-300 disabled:opacity-50"
         >
           {isPending ? 'Signing in...' : 'Sign In to Dashboard'}
         </button>

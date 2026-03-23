@@ -6,14 +6,14 @@ import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 
 export async function loginAction(formData: FormData) {
-  const email = formData.get('email') as string;
+  const userId = formData.get('user_id') as string;
   const password = formData.get('password') as string;
 
   const db = getDb();
-  const user = db.prepare('SELECT * FROM users WHERE email = ?').get(email) as { id: number; name: string; email: string; password: string; role: string } | undefined;
+  const user = db.prepare('SELECT * FROM users WHERE user_id = ?').get(userId) as { id: number; name: string; user_id: string; password: string; role: string } | undefined;
 
   if (!user || !bcrypt.compareSync(password, user.password)) {
-    return { error: 'Invalid email or password.' };
+    return { error: 'Invalid User ID or password.' };
   }
 
   const cookieStore = await cookies();
