@@ -36,7 +36,7 @@ export default function ScrollStory() {
       <div className="sticky top-0 left-0 w-full h-screen pointer-events-none flex flex-col justify-center overflow-hidden">
         
         {/* HERO */}
-        <motion.div style={{ opacity: heroOpacity, y: heroY }} className="absolute inset-0 flex flex-col items-center justify-center pt-32 z-10">
+        <motion.div style={{ opacity: heroOpacity, y: heroY }} className="absolute inset-0 flex flex-col items-center justify-center pt-32 z-10 opacity-100">
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-4 drop-shadow-2xl font-sans">
             Sony WH‑1000XM6
           </h1>
@@ -49,7 +49,7 @@ export default function ScrollStory() {
         </motion.div>
 
         {/* ENGINEERING */}
-        <motion.div style={{ opacity: engOpacity, x: engX }} className="absolute inset-0 flex items-center justify-start px-12 md:px-24 z-10">
+        <motion.div style={{ opacity: engOpacity, x: engX }} className="absolute inset-0 flex items-center justify-start px-12 md:px-24 z-10 opacity-0">
           <div className="max-w-md">
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white/90 mb-6 drop-shadow-lg font-sans">
               Precision-engineered for silence.
@@ -64,7 +64,7 @@ export default function ScrollStory() {
         </motion.div>
 
         {/* NOISE CANCELLING */}
-        <motion.div style={{ opacity: ncOpacity, x: ncX }} className="absolute inset-0 flex items-center justify-end px-12 md:px-24 z-10">
+        <motion.div style={{ opacity: ncOpacity, x: ncX }} className="absolute inset-0 flex items-center justify-end px-12 md:px-24 z-10 opacity-0">
           <div className="max-w-md text-right">
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white/90 mb-6 drop-shadow-lg font-sans">
               Adaptive noise cancelling, redefined.
@@ -78,7 +78,7 @@ export default function ScrollStory() {
         </motion.div>
 
         {/* SOUND */}
-        <motion.div style={{ opacity: soundOpacity, x: soundX }} className="absolute inset-0 flex items-center justify-start px-12 md:px-24 z-10">
+        <motion.div style={{ opacity: soundOpacity, x: soundX }} className="absolute inset-0 flex items-center justify-start px-12 md:px-24 z-10 opacity-0">
           <div className="max-w-md">
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white/90 mb-6 drop-shadow-lg font-sans">
               Immersive, lifelike sound.
@@ -93,7 +93,7 @@ export default function ScrollStory() {
         </motion.div>
 
         {/* CTA */}
-        <motion.div style={{ opacity: ctaOpacity, y: ctaY }} className="absolute inset-0 flex flex-col items-center justify-center z-20 pointer-events-auto">
+        <motion.div style={{ opacity: ctaOpacity, y: ctaY }} className="absolute inset-0 flex flex-col items-center justify-center z-20 pointer-events-auto opacity-0">
           <div className="text-center bg-[#050505]/40 backdrop-blur-md p-12 rounded-3xl border border-white/5 mx-6 shadow-2xl">
             <h2 className="text-5xl md:text-6xl font-bold tracking-tight text-white mb-4 drop-shadow-2xl font-sans">
               Hear everything. Feel nothing else.
