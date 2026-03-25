@@ -50,7 +50,7 @@ export default function ScrollStory() {
           transition={{ duration: 0.8 }}
           className="max-w-xl bg-black/20 backdrop-blur-md p-10 rounded-3xl border border-white/10"
         >
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-[#166534] mb-6 drop-shadow-lg font-sans">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-[#00D6FF] mb-6 drop-shadow-lg font-sans">
             Tailored for your role.
           </h2>
           <p className="text-lg text-white/80 mb-4 drop-shadow-md leading-relaxed font-sans">
@@ -71,7 +71,7 @@ export default function ScrollStory() {
           transition={{ duration: 0.8 }}
           className="max-w-xl text-right bg-black/20 backdrop-blur-md p-10 rounded-3xl border border-white/10"
         >
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-[#166534] mb-6 drop-shadow-lg font-sans">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-[#00D6FF] mb-6 drop-shadow-lg font-sans">
             Collaborate in real-time.
           </h2>
           <ul className="text-lg text-white/80 space-y-4 drop-shadow-md leading-relaxed list-none font-sans text-right">
@@ -91,7 +91,7 @@ export default function ScrollStory() {
           transition={{ duration: 0.8 }}
           className="max-w-xl bg-black/20 backdrop-blur-md p-10 rounded-3xl border border-white/10"
         >
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-[#166534] mb-6 drop-shadow-lg font-sans">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-[#00D6FF] mb-6 drop-shadow-lg font-sans">
             Advanced Visualization.
           </h2>
           <p className="text-lg text-white/80 mb-4 drop-shadow-md leading-relaxed font-sans">
