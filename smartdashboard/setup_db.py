@@ -10,8 +10,9 @@ cursor = conn.cursor()
 
 # Create Tables
 cursor.execute('''
-CREATE TABLE IF NOT EXISTS Users (
+CREATE TABLE IF NOT EXISTS users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id TEXT UNIQUE,
     name TEXT NOT NULL,
     role TEXT CHECK(role IN ('analyst', 'admin')) NOT NULL
 )
@@ -24,24 +25,19 @@ CREATE TABLE IF NOT EXISTS Business_Data (
     Product TEXT,
     Category TEXT,
     Region TEXT,
-
     Units_Sold INTEGER,
     Revenue REAL,
     Cost REAL,
-
     Logistics_Cost REAL,
     Overhead_Cost REAL,
     Total_Cost REAL,
-
     Net_Profit REAL,
     Loss REAL,
     Profit_Status TEXT,
     Loss_Percentage REAL,
     Loss_Reason TEXT,
-
     Customer_Age INTEGER,
     Gender TEXT,
-
     Season TEXT,
     Festival TEXT,
     Trend TEXT
@@ -51,29 +47,54 @@ CREATE TABLE IF NOT EXISTS Business_Data (
 cursor.execute('''
 CREATE TABLE IF NOT EXISTS Messages (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    sender_id INTEGER,
-    receiver_id INTEGER,
-    message TEXT,
-    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+    sender_role TEXT NOT NULL,
+    receiver_role TEXT NOT NULL,
+    message TEXT NOT NULL,
+    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+    is_read INTEGER DEFAULT 0
 )
 ''')
 
 cursor.execute('''
-CREATE TABLE IF NOT EXISTS Notifications (
+CREATE TABLE IF NOT EXISTS notifications (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    user_id INTEGER,
-    message TEXT,
-    status TEXT DEFAULT 'unread',
-    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+    user_id INTEGER NOT NULL,
+    message TEXT NOT NULL,
+    status TEXT NOT NULL DEFAULT 'unread' CHECK(status IN ('read','unread')),
+    timestamp TEXT NOT NULL DEFAULT (datetime('now')),
+    FOREIGN KEY(user_id) REFERENCES users(id)
 )
 ''')
 
 cursor.execute('''
-CREATE TABLE IF NOT EXISTS Reports (
+CREATE TABLE IF NOT EXISTS uploaded_data (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER NOT NULL,
+    file_name TEXT NOT NULL,
+    file_path TEXT NOT NULL,
+    upload_date TEXT NOT NULL DEFAULT (datetime('now')),
+    FOREIGN KEY(user_id) REFERENCES users(id)
+)
+''')
+
+cursor.execute('''
+CREATE TABLE IF NOT EXISTS ml_predictions (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER NOT NULL,
+    upload_id INTEGER NOT NULL,
+    result TEXT NOT NULL,
+    created_at TEXT NOT NULL DEFAULT (datetime('now')),
+    FOREIGN KEY(user_id) REFERENCES users(id)
+)
+''')
+
+cursor.execute('''
+CREATE TABLE IF NOT EXISTS reports (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER,
     file_path TEXT,
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    created_at TEXT NOT NULL DEFAULT (datetime('now')),
+    FOREIGN KEY(user_id) REFERENCES users(id)
 )
 ''')
 

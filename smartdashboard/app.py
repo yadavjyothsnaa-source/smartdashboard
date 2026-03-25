@@ -15,6 +15,7 @@ CORS(app)  # Allow frontend to access this API
 
 MODEL_PATH = 'revenue_model.pkl'
 FEATURES_PATH = 'model_features.pkl'
+DB_PATH = 'business_analytics.db'
 
 # Load the trained model and features
 model = None
@@ -43,7 +44,7 @@ def format_inr_text(value):
 
 def init_db():
     try:
-        conn = sqlite3.connect('../business_analytics.db')
+        conn = sqlite3.connect(DB_PATH)
         cursor = conn.cursor()
         cursor.execute('''
             CREATE TABLE IF NOT EXISTS Messages (
@@ -53,6 +54,44 @@ def init_db():
                 message TEXT NOT NULL,
                 timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
                 is_read INTEGER DEFAULT 0
+            )
+        ''')
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS users (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                user_id TEXT UNIQUE,
+                name TEXT NOT NULL,
+                role TEXT CHECK(role IN ('analyst', 'admin')) NOT NULL
+            )
+        ''')
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS uploaded_data (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                user_id INTEGER NOT NULL,
+                file_name TEXT NOT NULL,
+                file_path TEXT NOT NULL,
+                upload_date TEXT NOT NULL DEFAULT (datetime('now')),
+                FOREIGN KEY(user_id) REFERENCES users(id)
+            )
+        ''')
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS ml_predictions (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                user_id INTEGER NOT NULL,
+                upload_id INTEGER NOT NULL,
+                result TEXT NOT NULL,
+                created_at TEXT NOT NULL DEFAULT (datetime('now')),
+                FOREIGN KEY(user_id) REFERENCES users(id)
+            )
+        ''')
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS notifications (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                user_id INTEGER NOT NULL,
+                message TEXT NOT NULL,
+                status TEXT NOT NULL DEFAULT 'unread' CHECK(status IN ('read','unread')),
+                timestamp TEXT NOT NULL DEFAULT (datetime('now')),
+                FOREIGN KEY(user_id) REFERENCES users(id)
             )
         ''')
         conn.commit()
@@ -109,7 +148,7 @@ def home():
 
 def generate_insights():
     try:
-        conn = sqlite3.connect('../business_analytics.db')
+        conn = sqlite3.connect(DB_PATH)
         cursor = conn.cursor()
         
         # Insight 1: Top Product
@@ -175,7 +214,7 @@ def send_message():
         if not sender_role or not receiver_role or not message:
             return jsonify({"error": "Missing parameters"}), 400
             
-        conn = sqlite3.connect('../business_analytics.db')
+        conn = sqlite3.connect(DB_PATH)
         cursor = conn.cursor()
         cursor.execute('''
             INSERT INTO Messages (sender_role, receiver_role, message) 
@@ -193,7 +232,7 @@ def send_message():
 @app.route('/api/get-messages', methods=['GET'])
 def get_messages():
     try:
-        conn = sqlite3.connect('../business_analytics.db')
+        conn = sqlite3.connect(DB_PATH)
         cursor = conn.cursor()
         cursor.execute("SELECT id, sender_role, receiver_role, message, timestamp FROM Messages ORDER BY timestamp ASC")
         rows = cursor.fetchall()
@@ -231,12 +270,13 @@ def upload_file():
 
         # 2. TRAIN MODEL DYNAMICALLY
         try:
+            global model, features
             model, accuracy, top_features = train_model(df, target_col="Revenue")
+            features = pd.get_dummies(df.drop("Revenue", axis=1), drop_first=True).columns.tolist()
         except Exception as ml_err:
             return jsonify({"error": f"ML Training Error: Ensure dataset has 'Revenue' target column. ({str(ml_err)})"}), 400
 
         # 3. PREDICT (Using last row as sample future)
-        # Drop the target to use the rest of the dataframe structure
         sample_df = df.copy()
         if 'Date' in sample_df.columns:
             sample_df['Date'] = pd.to_datetime(sample_df['Date'])
@@ -245,6 +285,13 @@ def upload_file():
             sample_df = sample_df.drop('Date', axis=1)
             
         sample_df = sample_df.dropna(subset=['Revenue'])
+        
+        # Simple Anomaly Detection (Z-score > 2 on Revenue)
+        rev_mean = df['Revenue'].mean()
+        rev_std = df['Revenue'].std()
+        anomalies = df[abs(df['Revenue'] - rev_mean) > (2 * rev_std)]
+        anomalies_count = len(anomalies)
+
         sample_df = pd.get_dummies(sample_df, drop_first=True)
         sample_x = sample_df.drop("Revenue", axis=1).iloc[-1:]
         
@@ -255,7 +302,7 @@ def upload_file():
         trend = "upward" if predicted_val > last_actual else "downward"
 
         # 4. DATABASE INSERTIONS
-        conn = sqlite3.connect('../business_analytics.db')
+        conn = sqlite3.connect(DB_PATH)
         cursor = conn.cursor()
         
         cursor.execute("INSERT INTO uploaded_data (user_id, file_name, file_path) VALUES (?, ?, ?)", 
@@ -267,6 +314,7 @@ def upload_file():
             "confidence": f"{accuracy * 100:.1f}%",
             "forecast_next_period": f"₹{predicted_val:,.2f}",
             "top_features": top_features,
+            "anomalies_detected": anomalies_count,
             "model_used": "RandomForestRegressor"
         }
         
@@ -306,7 +354,7 @@ def upload_file():
 @app.route('/api/sales-trend', methods=['GET'])
 def get_sales_trend():
     try:
-        conn = sqlite3.connect('../business_analytics.db')
+        conn = sqlite3.connect(DB_PATH)
         conn.row_factory = sqlite3.Row
         cursor = conn.cursor()
         
@@ -348,7 +396,7 @@ def get_sales_trend():
 @app.route('/api/category-distribution', methods=['GET'])
 def get_category_distribution():
     try:
-        conn = sqlite3.connect('../business_analytics.db')
+        conn = sqlite3.connect(DB_PATH)
         conn.row_factory = sqlite3.Row
         cursor = conn.cursor()
         
@@ -372,7 +420,7 @@ def get_category_distribution():
 @app.route('/api/revenue-by-region', methods=['GET'])
 def get_revenue_by_region():
     try:
-        conn = sqlite3.connect('../business_analytics.db')
+        conn = sqlite3.connect(DB_PATH)
         conn.row_factory = sqlite3.Row
         cursor = conn.cursor()
         
@@ -420,7 +468,7 @@ def get_revenue_by_region():
 @app.route('/api/predictions', methods=['GET'])
 def get_recent_predictions():
     try:
-        conn = sqlite3.connect('../business_analytics.db')
+        conn = sqlite3.connect(DB_PATH)
         conn.row_factory = sqlite3.Row
         cursor = conn.cursor()
         
@@ -466,7 +514,7 @@ def get_new_messages():
         if not role:
             return jsonify([])
             
-        conn = sqlite3.connect('../business_analytics.db')
+        conn = sqlite3.connect(DB_PATH)
         cursor = conn.cursor()
         
         # Get unread messages
@@ -490,7 +538,7 @@ def get_new_messages():
 
 def check_alerts():
     try:
-        conn = sqlite3.connect('../business_analytics.db')
+        conn = sqlite3.connect(DB_PATH)
         cursor = conn.cursor()
         alerts = []
         
@@ -529,7 +577,7 @@ def download_report():
     import io
     from flask import send_file
     try:
-        conn = sqlite3.connect('../business_analytics.db')
+        conn = sqlite3.connect(DB_PATH)
         df = pd.read_sql_query("SELECT * FROM Business_Data", conn)
         csv_data = df.to_csv(index=False)
         

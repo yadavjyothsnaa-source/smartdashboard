@@ -34,8 +34,9 @@ def train_model(df, target_col="Revenue"):
     top_features = sorted(zip(X.columns, importances), key=lambda x: x[1], reverse=True)[:3]
     top_feature_names = [f[0] for f in top_features]
 
-    # Save Model
-    joblib.dump(model, "advanced_revenue_model.pkl")
+    # Save Model and Features
+    joblib.dump(model, "revenue_model.pkl")
+    joblib.dump(X.columns.tolist(), "model_features.pkl")
 
     return model, accuracy, top_feature_names
 
