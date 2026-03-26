@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTheme } from "@/context/ThemeContext";
+import { X, MessageSquare } from "lucide-react";
 
 interface PopupMessage {
   id: number;
@@ -11,6 +13,7 @@ interface PopupMessage {
 }
 
 export default function GlobalRealtimeListener({ role }: { role: string }) {
+  const { theme } = useTheme();
   const [popups, setPopups] = useState<PopupMessage[]>([]);
 
   useEffect(() => {
@@ -21,46 +24,54 @@ export default function GlobalRealtimeListener({ role }: { role: string }) {
           if (data && data.length > 0) {
             setPopups(prev => [...prev, ...data]);
             
-            // Auto dismiss after 5 seconds
             data.forEach(msg => {
               setTimeout(() => {
                 setPopups(current => current.filter(p => p.id !== msg.id));
-              }, 5000);
+              }, 8000); // 8 seconds for reader
             });
           }
         })
         .catch(err => console.error("Polling error", err));
-    }, 3000);
+    }, 20000);
 
     return () => clearInterval(interval);
   }, [role]);
 
   return (
-    <div className="fixed top-6 right-6 z-[100] flex flex-col gap-3 pointer-events-none">
+    <div className="fixed top-24 right-10 z-[100] flex flex-col gap-4 pointer-events-none">
       <AnimatePresence>
         {popups.map(popup => (
           <motion.div
             key={popup.id}
-            initial={{ opacity: 0, x: 50, scale: 0.9 }}
+            initial={{ opacity: 0, x: 100, scale: 0.9 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.2 } }}
-            className="w-80 bg-[#121214] border border-[#166534]/30 shadow-2xl rounded-xl p-4 pointer-events-auto flex flex-col gap-1 relative overflow-hidden"
+            exit={{ opacity: 0, x: 50, scale: 0.95 }}
+            className="w-96 bg-[var(--card-bg)] border border-[var(--border)] shadow-2xl rounded-[2rem] p-6 pointer-events-auto flex flex-col gap-2 relative overflow-hidden group"
           >
-            <div className="absolute top-0 left-0 w-1 h-full bg-[#166534]" />
-            <div className="flex justify-between items-center">
-              <span className="text-xs font-bold text-[#166534] uppercase tracking-wider">
-                {popup.sender_role === 'admin' ? 'Admin' : 'Data Analyst'}
-              </span>
+            <div className="flex justify-between items-start">
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-[var(--accent)]/10 flex items-center justify-center text-[var(--accent)]">
+                  <MessageSquare size={14} />
+                </div>
+                <div>
+                  <span className="text-[10px] font-black text-[var(--foreground)] uppercase tracking-widest block">
+                    {popup.sender_role === 'admin' ? 'Admin' : 'Data Analyst'}
+                  </span>
+                  <p className="text-[9px] font-bold text-[var(--muted)] uppercase tracking-widest">New Transmission</p>
+                </div>
+              </div>
+              <button 
+                onClick={() => setPopups(curr => curr.filter(p => p.id !== popup.id))}
+                className="p-1 hover:bg-black/5 rounded-full transition-colors"
+                aria-label="Close notification"
+              >
+                <X size={14} className="text-[var(--muted)]" />
+              </button>
             </div>
-            <p className="text-sm text-white/90 leading-snug mt-1 line-clamp-2">
-              {popup.message}
+            
+            <p className="text-sm text-[var(--foreground)] font-medium leading-relaxed mt-2 pl-1 line-clamp-3">
+              "{popup.message}"
             </p>
-            <button 
-              onClick={() => setPopups(curr => curr.filter(p => p.id !== popup.id))}
-              className="absolute top-2 right-2 text-white/30 hover:text-white"
-            >
-              ×
-            </button>
           </motion.div>
         ))}
       </AnimatePresence>

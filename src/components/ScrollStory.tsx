@@ -21,7 +21,7 @@ export default function ScrollStory() {
     <div className="relative w-full z-10 flex flex-col overflow-hidden">
       
       {/* HERO */}
-      <section className="h-screen w-full flex flex-col items-center justify-center px-4 snap-center">
+      <section className="h-screen w-full flex flex-col items-center justify-center px-4 snap-center pt-24 pb-12">
         <motion.div 
           initial={{ opacity: 0, y: 50 }} 
           whileInView={{ opacity: 1, y: 0 }} 
@@ -44,11 +44,11 @@ export default function ScrollStory() {
       {/* ROLES - LEFT */}
       <section className="h-screen w-full flex items-center justify-start px-12 md:px-24 snap-center">
         <motion.div 
-          initial={{ opacity: 0, x: -100 }} 
-          whileInView={{ opacity: 1, x: 0 }} 
+          initial={{ opacity: 0, y: 30 }} 
+          whileInView={{ opacity: 1, y: 0 }} 
           viewport={{ once: false, margin: "-20%" }}
-          transition={{ duration: 0.8 }}
-          className="max-w-xl bg-black/20 backdrop-blur-md p-10 rounded-3xl border border-white/10"
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="max-w-xl bg-black/30 backdrop-blur-md p-10 rounded-3xl border border-white/10"
         >
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-[#00D6FF] mb-6 drop-shadow-lg font-sans">
             Tailored for your role.
@@ -65,13 +65,13 @@ export default function ScrollStory() {
       {/* CHAT - RIGHT */}
       <section className="h-screen w-full flex items-center justify-end px-12 md:px-24 snap-center">
         <motion.div 
-          initial={{ opacity: 0, x: 100 }} 
-          whileInView={{ opacity: 1, x: 0 }} 
+          initial={{ opacity: 0, y: 30 }} 
+          whileInView={{ opacity: 1, y: 0 }} 
           viewport={{ once: false, margin: "-20%" }}
-          transition={{ duration: 0.8 }}
-          className="max-w-xl text-right bg-black/20 backdrop-blur-md p-10 rounded-3xl border border-white/10"
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="max-w-2xl text-right bg-black/30 backdrop-blur-md p-10 rounded-3xl border border-white/10"
         >
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-[#00D6FF] mb-6 drop-shadow-lg font-sans">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight text-[#00D6FF] mb-6 drop-shadow-lg font-sans whitespace-nowrap">
             Collaborate in real-time.
           </h2>
           <ul className="text-lg text-white/80 space-y-4 drop-shadow-md leading-relaxed list-none font-sans text-right">
@@ -85,13 +85,13 @@ export default function ScrollStory() {
       {/* VISUALIZATION - LEFT */}
       <section className="h-screen w-full flex items-center justify-start px-12 md:px-24 snap-center">
         <motion.div 
-          initial={{ opacity: 0, x: -100 }} 
-          whileInView={{ opacity: 1, x: 0 }} 
+          initial={{ opacity: 0, y: 30 }} 
+          whileInView={{ opacity: 1, y: 0 }} 
           viewport={{ once: false, margin: "-20%" }}
-          transition={{ duration: 0.8 }}
-          className="max-w-xl bg-black/20 backdrop-blur-md p-10 rounded-3xl border border-white/10"
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="max-w-2xl bg-black/30 backdrop-blur-md p-10 rounded-3xl border border-white/10"
         >
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-[#00D6FF] mb-6 drop-shadow-lg font-sans">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight text-[#00D6FF] mb-6 drop-shadow-lg font-sans whitespace-nowrap">
             Advanced Visualization.
           </h2>
           <p className="text-lg text-white/80 mb-4 drop-shadow-md leading-relaxed font-sans">

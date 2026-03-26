@@ -1,9 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { Zap, Cpu, TrendingUp, Sparkles, ChevronRight } from "lucide-react";
+import { useTheme } from "@/context/ThemeContext";
 
 export default function RealTimePredictor() {
+  const { theme } = useTheme();
   const [formData, setFormData] = useState({
     Units_Sold: 100,
     Cost: 5000,
@@ -53,54 +56,91 @@ export default function RealTimePredictor() {
     }
   };
 
+  const titleFont = theme === 'chocolate' ? 'font-serif italic' : 'font-sans font-black uppercase tracking-tighter';
+
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      className="p-6 rounded-2xl border border-white/10 bg-[#0a0a0c] shadow-2xl flex flex-col gap-4"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="p-10 rounded-[3rem] border border-[var(--border)] bg-[var(--card-bg)] shadow-sm relative overflow-hidden group transition-all hover:shadow-2xl"
     >
-      <h3 className="text-lg font-semibold text-white flex items-center gap-2">
-        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-        </svg>
-        Real-Time Revenue Predictor
-      </h3>
-      <p className="text-xs text-white/50">Enter parameters to get an instant ML revenue prediction.</p>
-      
-      <form onSubmit={handlePredict} className="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm">
+      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-10">
         <div>
-          <label className="block text-white/70 mb-1 text-xs">Units Sold</label>
-          <input type="number" name="Units_Sold" value={formData.Units_Sold} onChange={handleChange} className="w-full bg-black/50 border border-white/10 rounded-lg px-3 py-2 text-white" />
-        </div>
-        <div>
-          <label className="block text-white/70 mb-1 text-xs">Base Cost</label>
-          <input type="number" name="Cost" value={formData.Cost} onChange={handleChange} className="w-full bg-black/50 border border-white/10 rounded-lg px-3 py-2 text-white" />
-        </div>
-        <div>
-          <label className="block text-white/70 mb-1 text-xs">Logistics</label>
-          <input type="number" name="Logistics_Cost" value={formData.Logistics_Cost} onChange={handleChange} className="w-full bg-black/50 border border-white/10 rounded-lg px-3 py-2 text-white" />
-        </div>
-        <div>
-          <label className="block text-white/70 mb-1 text-xs">Trend Level</label>
-          <select name="Trend" value={formData.Trend} onChange={handleChange} className="w-full bg-black/50 border border-white/10 rounded-lg px-3 py-2 text-white appearance-none">
-            <option value={0}>Low</option>
-            <option value={1}>Medium</option>
-            <option value={2}>High</option>
-          </select>
+          <h3 className={`text-3xl ${titleFont} text-[var(--foreground)] flex items-center gap-3`}>
+            Heuristic Oracle
+          </h3>
+          <p className="text-[10px] text-[var(--muted)] font-bold uppercase tracking-[0.3em] mt-2">Instant Predictive Logic</p>
         </div>
         
-        <div className="col-span-2 md:col-span-4 mt-2 flex items-center justify-between">
-          <button type="submit" disabled={loading} className="px-5 py-2 bg-gradient-to-r from-[#166534] to-[#14532d] text-white rounded-lg text-sm font-semibold hover:shadow-[0_0_15px_rgba(22,101,52,0.4)] transition-all disabled:opacity-50">
-            {loading ? 'Predicting...' : 'Generate Prediction'}
+        {prediction !== null && (
+          <motion.div 
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            className="flex items-center gap-4 bg-[var(--accent)] text-white px-8 py-4 rounded-3xl shadow-lg"
+          >
+            <TrendingUp size={20} />
+            <div>
+              <p className="text-[9px] font-black uppercase tracking-widest opacity-80">Predicted Yield</p>
+              <p className="text-xl font-bold tracking-tight">₹{prediction.toLocaleString()}</p>
+            </div>
+          </motion.div>
+        )}
+      </div>
+      
+      <form onSubmit={handlePredict} className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        {[
+          { label: 'Units Sold', name: 'Units_Sold', type: 'number' },
+          { label: 'Base Cost', name: 'Cost', type: 'number' },
+          { label: 'Logistics', name: 'Logistics_Cost', type: 'number' },
+          { label: 'Trend Level', name: 'Trend', type: 'select', options: [{v:0, l:'Low'}, {v:1, l:'Med'}, {v:2, l:'High'}] }
+        ].map((field) => (
+          <div key={field.name} className="space-y-2">
+            <label className="text-[10px] font-black text-[var(--muted)] uppercase tracking-widest ml-1">{field.label}</label>
+            {field.type === 'select' ? (
+              <select 
+                name={field.name} 
+                value={(formData as any)[field.name]} 
+                onChange={handleChange} 
+                className="w-full bg-[var(--background)] border border-[var(--border)] rounded-2xl px-5 py-3 text-[var(--foreground)] font-bold text-sm outline-none focus:border-[var(--accent)] transition-all"
+              >
+                {field.options?.map(o => <option key={o.v} value={o.v}>{o.l}</option>)}
+              </select>
+            ) : (
+              <input 
+                type="number" 
+                name={field.name} 
+                value={(formData as any)[field.name]} 
+                onChange={handleChange} 
+                className="w-full bg-[var(--background)] border border-[var(--border)] rounded-2xl px-5 py-3 text-[var(--foreground)] font-bold text-sm outline-none focus:border-[var(--accent)] transition-all [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" 
+              />
+            )}
+          </div>
+        ))}
+        
+        <div className="col-span-2 md:col-span-4 mt-6 flex items-center justify-between">
+          <button 
+            type="submit" 
+            disabled={loading} 
+            className="group px-10 py-4 bg-[var(--foreground)] text-[var(--background)] rounded-3xl text-[10px] font-black tracking-[0.2em] transition-all hover:scale-[0.98] disabled:opacity-50 flex items-center gap-3 uppercase"
+          >
+            {loading ? (
+              <div className="w-4 h-4 border-2 border-[var(--background)]/30 border-t-[var(--background)] rounded-full animate-spin" />
+            ) : <Sparkles size={14} />}
+            {loading ? 'Processing...' : 'Generate Forecast'}
           </button>
           
-          {prediction !== null && (
-            <div className="text-right">
-              <span className="text-xs text-white/50 block">Predicted Revenue</span>
-              <span className="text-xl font-bold text-[#166534]">₹{prediction.toLocaleString()}</span>
-            </div>
-          )}
-          {error && <span className="text-xs text-red-400">{error}</span>}
+          <AnimatePresence>
+            {error && (
+              <motion.span 
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0 }}
+                className="text-[10px] font-black text-red-500 uppercase tracking-widest bg-red-50 px-4 py-2 rounded-full border border-red-100"
+              >
+                Signal Failure: {error}
+              </motion.span>
+            )}
+          </AnimatePresence>
         </div>
       </form>
     </motion.div>

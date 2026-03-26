@@ -12,6 +12,9 @@ export default function Home() {
       {/* Background Canvas fixed to screen */}
       <CanvasSequence />
       
+      {/* Subtle translucent glassmorphism layer to enhance text legibility */}
+      <div className="fixed inset-0 z-[5] bg-black/20 backdrop-blur-[2px] pointer-events-none" />
+      
       {/* Scrollable Content overlaying the canvas */}
       <ScrollStory />
       

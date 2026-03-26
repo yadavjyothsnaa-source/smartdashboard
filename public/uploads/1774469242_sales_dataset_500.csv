@@ -1,0 +1,501 @@
+id,Date,Product,Category,Region,Units_Sold,Revenue,Cost,Logistics_Cost,Overhead_Cost,Total_Cost,Net_Profit,Loss,Profit_Status,Loss_Percentage,Loss_Reason,Customer_Age,Gender,Season,Festival,Trend
+1,2025-11-24,Umbrella,Fashion,North,72,101952,105929,4106,7615,117650,0,15698,Loss,15.4,Overstock,45,Female,Spring,Valentine,High Demand
+2,2025-06-22,Umbrella,Fashion,East,34,13362,12047,11428,10977,34452,0,21090,Loss,157.84,High Cost,41,Female,Winter,None,Low Demand
+3,2025-11-08,Blazer,Gift,South,51,207927,171473,16205,14197,201875,6052,0,Profit,0.0,None,52,Female,Monsoon,Pongal,Trending
+4,2025-04-23,Smartphone,Electronics,East,33,289443,240414,4053,9315,253782,35661,0,Profit,0.0,None,50,Male,Summer,None,Seasonal Spike
+5,2025-11-08,Cooler,Gift,North,205,415330,449798,6705,9342,465845,0,50515,Loss,12.16,Market Competition,45,Male,Winter,None,Stable
+6,2025-12-10,Blazer,Food,East,142,479250,476409,7510,13834,497753,0,18503,Loss,3.86,High Cost,54,Female,Winter,Navratri,Stable
+7,2025-04-08,Umbrella,Fashion,East,100,116400,107297,18112,14016,139425,0,23025,Loss,19.78,Low Sales,21,Male,Summer,Ugadi,High Demand
+8,2025-07-28,TV,Accessories,South,112,280896,301739,12701,7579,322019,0,41123,Loss,14.64,Low Sales,50,Male,Winter,Holi,Seasonal Spike
+9,2025-02-04,Perfume,Gift,East,40,73120,64431,16318,6188,86937,0,13817,Loss,18.9,Low Sales,47,Male,Summer,Ugadi,Seasonal Spike
+10,2025-05-16,Smartphone,Food,West,72,1011888,1021638,7335,9325,1038298,0,26410,Loss,2.61,Market Competition,49,Female,Summer,Holi,Stable
+11,2025-05-22,Sweets,Fashion,North,207,213417,227855,7441,9088,244384,0,30967,Loss,14.51,Overstock,24,Female,Monsoon,Valentine,High Demand
+12,2025-03-25,AC,Accessories,West,55,290675,252641,5137,9573,267351,23324,0,Profit,0.0,None,40,Female,Spring,Diwali,Low Demand
+13,2025-05-14,AC,Electronics,North,19,71801,70322,14868,7041,92231,0,20430,Loss,28.45,Overstock,37,Female,Monsoon,Eid,Stable
+14,2025-12-23,Laptop,Electronics,South,59,661449,655384,8649,13445,677478,0,16029,Loss,2.42,Overstock,39,Male,Winter,None,High Demand
+15,2025-04-12,Smartphone,Fashion,West,72,1136448,1220079,5988,12478,1238545,0,102097,Loss,8.98,High Cost,47,Female,Monsoon,Pongal,Seasonal Spike
+16,2025-08-17,AC,Accessories,East,76,390336,312484,10678,10421,333583,56753,0,Profit,0.0,None,52,Female,Monsoon,Diwali,High Demand
+17,2025-08-04,Fan,Electronics,West,205,389910,394486,17770,12657,424913,0,35003,Loss,8.98,High Cost,52,Male,Monsoon,Diwali,Low Demand
+18,2025-11-26,Raincoat,Gift,East,56,125048,127718,19558,9051,156327,0,31279,Loss,25.01,High Cost,19,Male,Winter,Valentine,Stable
+19,2025-12-09,Umbrella,Electronics,South,129,91074,74007,16656,9941,100604,0,9530,Loss,10.46,Overstock,25,Male,Spring,Pongal,Trending
+20,2025-02-05,Saree,Food,West,117,749736,796311,7995,12613,816919,0,67183,Loss,8.96,Market Competition,42,Female,Summer,Navratri,Trending
+21,2025-04-04,TV,Gift,North,76,375516,376031,9016,14528,399575,0,24059,Loss,6.41,Off Season,48,Female,Monsoon,Eid,Trending
+22,2025-12-26,Jeans,Food,North,74,142968,112162,12751,7073,131986,10982,0,Profit,0.0,None,35,Male,Summer,None,High Demand
+23,2025-11-23,TV,Fashion,West,156,671424,653981,16955,8697,679633,0,8209,Loss,1.22,Market Competition,42,Female,Monsoon,None,Seasonal Spike
+24,2025-08-08,Laptop,Electronics,West,166,1395064,1119926,7824,9334,1137084,257980,0,Profit,0.0,None,55,Male,Monsoon,Holi,Seasonal Spike
+25,2025-04-26,Blazer,Gift,North,46,255070,248231,4423,6496,259150,0,4080,Loss,1.6,High Cost,54,Male,Spring,Diwali,High Demand
+26,2025-08-29,Saree,Accessories,North,56,430192,380052,19895,11622,411569,18623,0,Profit,0.0,None,50,Male,Monsoon,Pongal,Low Demand
+27,2025-04-07,Saree,Food,East,170,1328380,1438714,14612,7522,1460848,0,132468,Loss,9.97,High Logistics,36,Female,Monsoon,Navratri,Stable
+28,2025-05-05,Jeans,Electronics,South,108,218376,196692,19283,10272,226247,0,7871,Loss,3.6,High Cost,33,Female,Winter,Pongal,Low Demand
+29,2025-06-12,Mixer,Accessories,East,108,181116,178933,17955,10383,207271,0,26155,Loss,14.44,Overstock,52,Female,Spring,Navratri,Seasonal Spike
+30,2025-01-19,Kurta,Fashion,South,171,290871,242701,5293,14985,262979,27892,0,Profit,0.0,None,42,Male,Monsoon,Valentine,High Demand
+31,2025-08-25,Blazer,Food,East,75,393150,378609,13417,9847,401873,0,8723,Loss,2.22,Overstock,36,Male,Monsoon,None,Low Demand
+32,2025-10-17,Perfume,Fashion,East,83,303863,254091,6165,13837,274093,29770,0,Profit,0.0,None,41,Female,Winter,None,Stable
+33,2025-06-01,Mixer,Food,West,129,101136,82392,7830,12724,102946,0,1810,Loss,1.79,Low Sales,53,Female,Winter,Holi,Stable
+34,2025-12-25,Laptop,Accessories,West,45,252405,252629,7559,12264,272452,0,20047,Loss,7.94,High Logistics,33,Female,Summer,Eid,Seasonal Spike
+35,2025-11-27,T-Shirt,Fashion,East,80,52560,54261,13764,5046,73071,0,20511,Loss,39.02,Off Season,27,Male,Spring,Valentine,Low Demand
+36,2025-12-05,Headphones,Gift,West,101,458338,401743,14540,5510,421793,36545,0,Profit,0.0,None,21,Female,Monsoon,Pongal,Low Demand
+37,2025-09-09,Earphones,Accessories,West,30,82380,75593,18550,8743,102886,0,20506,Loss,24.89,High Logistics,39,Female,Monsoon,Pongal,Low Demand
+38,2025-06-10,Raincoat,Food,North,105,136500,144388,15813,5842,166043,0,29543,Loss,21.64,Off Season,37,Female,Summer,Ugadi,High Demand
+39,2025-12-03,TV,Gift,West,99,360459,289184,16140,5502,310826,49633,0,Profit,0.0,None,23,Male,Monsoon,Pongal,Stable
+40,2025-06-24,AC,Food,North,194,861748,702742,15111,14717,732570,129178,0,Profit,0.0,None,49,Female,Summer,Ugadi,Stable
+41,2025-11-03,Sweets,Fashion,South,87,112491,118776,13433,12033,144242,0,31751,Loss,28.23,Market Competition,43,Female,Spring,Holi,Stable
+42,2025-01-11,Watch,Gift,East,186,584040,521169,19699,7419,548287,35753,0,Profit,0.0,None,33,Male,Winter,None,High Demand
+43,2025-03-30,Kurta,Gift,West,55,127105,117522,4932,11041,133495,0,6390,Loss,5.03,Off Season,22,Male,Monsoon,Navratri,Seasonal Spike
+44,2025-10-11,Mixer,Fashion,East,156,203268,182219,19039,9634,210892,0,7624,Loss,3.75,High Logistics,44,Female,Summer,Eid,Low Demand
+45,2025-06-18,Umbrella,Electronics,East,82,79704,64552,14984,11937,91473,0,11769,Loss,14.77,Market Competition,41,Male,Spring,None,High Demand
+46,2025-04-20,Watch,Accessories,South,67,329640,300458,15081,8891,324430,5210,0,Profit,0.0,None,46,Female,Monsoon,Ugadi,Seasonal Spike
+47,2025-05-03,Laptop,Accessories,South,104,1491880,1293897,18832,13410,1326139,165741,0,Profit,0.0,None,27,Female,Summer,Ugadi,Stable
+48,2025-06-28,Headphones,Accessories,West,111,311355,268355,17680,7449,293484,17871,0,Profit,0.0,None,53,Female,Summer,None,High Demand
+49,2025-06-04,Umbrella,Fashion,South,117,171756,162741,9908,6108,178757,0,7001,Loss,4.08,Market Competition,52,Male,Monsoon,Navratri,Low Demand
+50,2025-11-22,Fan,Food,North,201,463305,467537,19460,12498,499495,0,36190,Loss,7.81,Low Sales,36,Male,Summer,Ugadi,Low Demand
+51,2025-06-11,Laptop,Electronics,East,149,1363350,1179775,5353,11955,1197083,166267,0,Profit,0.0,None,23,Female,Winter,None,Trending
+52,2025-02-22,Gift Hampers,Food,North,88,145640,153151,15109,12179,180439,0,34799,Loss,23.89,Low Sales,26,Male,Winter,Eid,Trending
+53,2025-07-16,Backpack,Fashion,South,183,436455,438764,7515,9678,455957,0,19502,Loss,4.47,Overstock,49,Male,Summer,Valentine,Low Demand
+54,2025-08-20,AC,Accessories,West,184,902704,839126,13038,7126,859290,43414,0,Profit,0.0,None,23,Male,Spring,Pongal,Stable
+55,2025-09-27,Raincoat,Accessories,West,42,122724,109313,19415,13501,142229,0,19505,Loss,15.89,Off Season,23,Female,Winter,None,High Demand
+56,2025-11-17,Laptop,Electronics,West,138,1071156,1140223,12938,9745,1162906,0,91750,Loss,8.57,Overstock,37,Female,Winter,Pongal,Trending
+57,2025-08-21,Gift Hampers,Fashion,South,122,255590,210882,4829,9754,225465,30125,0,Profit,0.0,None,42,Female,Winter,Valentine,Trending
+58,2025-10-23,Mixer,Food,South,205,314880,299684,17880,6761,324325,0,9445,Loss,3.0,High Logistics,26,Female,Spring,Pongal,Trending
+59,2025-01-24,Fan,Fashion,South,102,108426,89326,9456,12761,111543,0,3117,Loss,2.87,Market Competition,47,Male,Winter,Eid,Seasonal Spike
+60,2025-06-13,AC,Accessories,North,161,868112,839227,6793,13589,859609,8503,0,Profit,0.0,None,42,Male,Winter,Diwali,Seasonal Spike
+61,2025-12-25,Umbrella,Gift,West,122,167872,179938,9608,13950,203496,0,35624,Loss,21.22,Off Season,34,Female,Winter,Ugadi,Trending
+62,2025-10-13,Laptop,Gift,North,207,1737972,1771251,7505,8310,1787066,0,49094,Loss,2.82,Market Competition,35,Female,Winter,Holi,Seasonal Spike
+63,2025-10-28,Refrigerator,Gift,West,181,364715,390441,5465,14406,410312,0,45597,Loss,12.5,High Cost,52,Male,Winter,Pongal,High Demand
+64,2025-01-19,Fan,Accessories,South,201,424713,428939,4230,10523,443692,0,18979,Loss,4.47,Off Season,54,Male,Winter,Pongal,Stable
+65,2025-09-21,Watch,Fashion,East,181,464808,408184,10642,13233,432059,32749,0,Profit,0.0,None,37,Male,Spring,Eid,Seasonal Spike
+66,2025-04-24,Refrigerator,Gift,East,49,229075,244863,7312,14383,266558,0,37483,Loss,16.36,Market Competition,27,Male,Spring,Navratri,Low Demand
+67,2025-12-15,Cooler,Electronics,East,33,35310,35455,12866,5987,54308,0,18998,Loss,53.8,Low Sales,48,Male,Spring,Pongal,High Demand
+68,2025-03-11,Blazer,Accessories,North,107,163496,155356,17489,8762,181607,0,18111,Loss,11.08,High Cost,47,Female,Winter,None,High Demand
+69,2025-02-27,Sweets,Accessories,West,71,62409,60211,16657,10253,87121,0,24712,Loss,39.6,High Cost,37,Male,Winter,Pongal,Trending
+70,2025-05-21,Sweets,Electronics,South,170,172550,179080,18987,5944,204011,0,31461,Loss,18.23,Market Competition,44,Female,Winter,Pongal,High Demand
+71,2025-05-11,Cooler,Food,West,125,113125,122162,19762,6922,148846,0,35721,Loss,31.58,Overstock,48,Male,Winter,Pongal,High Demand
+72,2025-10-10,Watch,Food,East,129,439632,384441,7214,10404,402059,37573,0,Profit,0.0,None,32,Female,Winter,Navratri,Seasonal Spike
+73,2025-12-02,Perfume,Food,North,205,652515,523153,6474,5149,534776,117739,0,Profit,0.0,None,31,Female,Spring,Diwali,Seasonal Spike
+74,2025-11-23,Perfume,Electronics,East,178,246708,212359,9807,9379,231545,15163,0,Profit,0.0,None,43,Male,Spring,Pongal,Stable
+75,2025-10-17,Refrigerator,Gift,North,185,620305,537649,19141,6218,563008,57297,0,Profit,0.0,None,35,Male,Winter,Eid,Low Demand
+76,2025-04-17,Backpack,Gift,East,29,95062,103622,9347,5485,118454,0,23392,Loss,24.61,Overstock,35,Female,Monsoon,Ugadi,Trending
+77,2025-10-11,Fan,Accessories,South,184,248032,201579,5430,8070,215079,32953,0,Profit,0.0,None,45,Female,Monsoon,Holi,Low Demand
+78,2025-02-15,T-Shirt,Electronics,West,162,237654,198086,8521,11899,218506,19148,0,Profit,0.0,None,37,Female,Summer,Eid,Trending
+79,2025-05-07,Mixer,Accessories,South,127,163195,142512,15386,13044,170942,0,7747,Loss,4.75,Market Competition,33,Female,Monsoon,None,Stable
+80,2025-07-06,Umbrella,Electronics,South,161,127995,132155,5211,12357,149723,0,21728,Loss,16.98,Market Competition,48,Female,Monsoon,Diwali,Trending
+81,2025-12-26,Shoes,Electronics,West,37,102231,94323,10408,12586,117317,0,15086,Loss,14.76,Overstock,55,Male,Spring,Diwali,Stable
+82,2025-02-23,Laptop,Accessories,West,39,285519,307668,16132,8996,332796,0,47277,Loss,16.56,Market Competition,29,Male,Spring,Pongal,Stable
+83,2025-04-29,Fan,Gift,South,173,276108,238544,18133,13019,269696,6412,0,Profit,0.0,None,51,Female,Monsoon,Pongal,Seasonal Spike
+84,2025-02-28,T-Shirt,Food,East,168,305760,300672,15361,7838,323871,0,18111,Loss,5.92,Market Competition,28,Female,Spring,Valentine,High Demand
+85,2025-06-11,Jeans,Electronics,West,101,264418,220478,11492,14267,246237,18181,0,Profit,0.0,None,49,Male,Summer,None,Seasonal Spike
+86,2025-07-07,Shoes,Fashion,East,149,416902,432636,13340,10747,456723,0,39821,Loss,9.55,Market Competition,35,Male,Spring,None,Trending
+87,2025-10-21,Mobile,Electronics,West,44,157828,143451,16284,9558,169293,0,11465,Loss,7.26,Overstock,41,Female,Monsoon,Eid,Seasonal Spike
+88,2025-01-02,Mixer,Fashion,East,172,197628,155179,19227,7588,181994,15634,0,Profit,0.0,None,46,Female,Summer,Pongal,High Demand
+89,2025-12-19,Smartphone,Food,South,80,762320,721324,11291,5152,737767,24553,0,Profit,0.0,None,18,Female,Summer,Pongal,High Demand
+90,2025-09-02,Gift Hampers,Gift,East,32,130048,127075,11248,8559,146882,0,16834,Loss,12.94,Low Sales,24,Male,Summer,Pongal,Trending
+91,2025-08-08,Watch,Gift,South,80,213360,200529,13730,6163,220422,0,7062,Loss,3.31,Market Competition,18,Female,Spring,Valentine,Stable
+92,2025-10-19,Raincoat,Food,South,205,519470,451310,9077,6294,466681,52789,0,Profit,0.0,None,50,Male,Winter,Eid,Stable
+93,2025-10-28,Blazer,Fashion,North,188,301364,284943,17475,9247,311665,0,10301,Loss,3.42,High Cost,41,Male,Spring,Holi,Low Demand
+94,2025-06-21,Raincoat,Food,West,77,133595,106169,9963,11274,127406,6189,0,Profit,0.0,None,27,Male,Summer,Pongal,High Demand
+95,2025-06-14,Refrigerator,Accessories,North,79,304624,309700,7974,12600,330274,0,25650,Loss,8.42,Off Season,55,Female,Winter,Ugadi,High Demand
+96,2025-01-04,Raincoat,Fashion,South,148,288008,289238,10102,12511,311851,0,23843,Loss,8.28,Overstock,23,Male,Winter,Pongal,Low Demand
+97,2025-10-31,Backpack,Fashion,East,179,263667,215847,9870,8401,234118,29549,0,Profit,0.0,None,46,Female,Monsoon,None,Low Demand
+98,2025-02-16,AC,Food,West,65,154245,161296,7641,7141,176078,0,21833,Loss,14.15,High Cost,43,Female,Summer,None,Low Demand
+99,2025-01-12,Gift Hampers,Gift,East,42,47922,47305,12173,11750,71228,0,23306,Loss,48.63,Market Competition,48,Male,Summer,None,Stable
+100,2025-03-12,Raincoat,Gift,South,171,290187,259537,13568,8813,281918,8269,0,Profit,0.0,None,28,Male,Winter,Ugadi,Trending
+101,2025-10-01,Mixer,Fashion,South,157,103149,82310,13857,8584,104751,0,1602,Loss,1.55,Low Sales,51,Female,Summer,Eid,Seasonal Spike
+102,2025-04-14,Smartphone,Food,South,92,825700,815575,6854,14207,836636,0,10936,Loss,1.32,Overstock,40,Male,Winter,Pongal,Trending
+103,2025-12-19,Laptop,Gift,South,196,2819460,2602140,8345,8435,2618920,200540,0,Profit,0.0,None,33,Male,Spring,None,Low Demand
+104,2025-01-01,Sweets,Accessories,East,197,197591,214293,5215,10600,230108,0,32517,Loss,16.46,High Cost,42,Male,Summer,Holi,Trending
+105,2025-11-01,Kurta,Accessories,West,120,198360,164469,9911,5062,179442,18918,0,Profit,0.0,None,45,Male,Spring,Navratri,High Demand
+106,2025-02-19,Headphones,Gift,South,173,606019,516569,8400,14244,539213,66806,0,Profit,0.0,None,21,Male,Summer,Holi,Trending
+107,2025-10-05,Raincoat,Electronics,South,151,195092,160049,10936,6283,177268,17824,0,Profit,0.0,None,45,Male,Winter,None,Trending
+108,2025-02-04,Gift Hampers,Accessories,East,151,687503,729389,8327,11275,748991,0,61488,Loss,8.94,Overstock,49,Female,Summer,Valentine,Trending
+109,2025-07-26,Smartphone,Electronics,East,19,275196,267928,5462,8079,281469,0,6273,Loss,2.28,High Logistics,31,Female,Monsoon,Eid,Low Demand
+110,2025-09-21,AC,Fashion,North,191,488005,418425,12008,14732,445165,42840,0,Profit,0.0,None,46,Male,Monsoon,Eid,Trending
+111,2025-03-25,Mobile,Fashion,North,17,73321,73913,15622,9511,99046,0,25725,Loss,35.09,High Logistics,42,Female,Monsoon,None,High Demand
+112,2025-08-27,Laptop,Electronics,East,159,814080,869355,17196,14830,901381,0,87301,Loss,10.72,High Logistics,38,Male,Summer,Navratri,Trending
+113,2025-05-13,Raincoat,Accessories,East,198,396594,429517,18738,10499,458754,0,62160,Loss,15.67,Overstock,23,Male,Spring,Ugadi,Trending
+114,2025-08-04,Watch,Food,North,159,618510,677825,18628,12496,708949,0,90439,Loss,14.62,High Cost,38,Male,Summer,Navratri,Trending
+115,2025-11-20,AC,Food,West,11,31427,34067,18614,10279,62960,0,31533,Loss,100.34,Market Competition,30,Male,Summer,Ugadi,High Demand
+116,2025-12-22,T-Shirt,Food,South,36,39276,30875,7675,7149,45699,0,6423,Loss,16.35,High Cost,19,Male,Summer,Eid,Low Demand
+117,2025-07-12,Blazer,Food,West,162,255312,233361,18723,6718,258802,0,3490,Loss,1.37,Market Competition,25,Female,Summer,Holi,Stable
+118,2025-04-12,Kurta,Gift,North,143,123552,132142,14556,8787,155485,0,31933,Loss,25.85,High Logistics,36,Female,Monsoon,Diwali,Low Demand
+119,2025-03-31,Sweets,Food,North,183,115839,100430,10319,12835,123584,0,7745,Loss,6.69,High Logistics,28,Male,Winter,Diwali,High Demand
+120,2025-02-23,Raincoat,Electronics,East,155,323485,353545,14974,10542,379061,0,55576,Loss,17.18,Market Competition,51,Male,Monsoon,Ugadi,Stable
+121,2025-06-27,Perfume,Accessories,South,152,599792,482967,11277,14388,508632,91160,0,Profit,0.0,None,46,Male,Monsoon,Navratri,Trending
+122,2025-03-02,TV,Fashion,West,113,536637,541644,9952,12414,564010,0,27373,Loss,5.1,Low Sales,24,Male,Summer,Eid,Trending
+123,2025-11-21,Laptop,Electronics,North,189,1086750,1006726,13655,13260,1033641,53109,0,Profit,0.0,None,26,Female,Summer,Diwali,Seasonal Spike
+124,2025-08-10,Backpack,Accessories,South,187,496298,434584,15493,13975,464052,32246,0,Profit,0.0,None,38,Male,Winter,Ugadi,Seasonal Spike
+125,2025-05-29,Perfume,Food,South,191,134273,110977,14981,5927,131885,2388,0,Profit,0.0,None,30,Female,Winter,None,Trending
+126,2025-03-16,Sweets,Food,South,202,309060,261151,18235,12259,291645,17415,0,Profit,0.0,None,32,Female,Winter,Ugadi,Trending
+127,2025-08-18,AC,Fashion,South,54,191430,179365,13382,14013,206760,0,15330,Loss,8.01,Off Season,22,Female,Winter,Valentine,Seasonal Spike
+128,2025-02-04,Saree,Gift,East,149,983102,1068481,15182,10258,1093921,0,110819,Loss,11.27,High Logistics,25,Female,Spring,None,Low Demand
+129,2025-09-22,T-Shirt,Electronics,East,134,225522,222567,19396,6181,248144,0,22622,Loss,10.03,Overstock,27,Male,Monsoon,Eid,Low Demand
+130,2025-02-14,Gift Hampers,Fashion,South,74,182410,159197,15237,9937,184371,0,1961,Loss,1.08,Market Competition,23,Female,Monsoon,Pongal,Stable
+131,2025-12-05,Headphones,Accessories,South,146,397120,336660,18837,13397,368894,28226,0,Profit,0.0,None,27,Male,Winter,Ugadi,Seasonal Spike
+132,2025-05-10,Cooler,Fashion,South,181,383720,358960,9379,10008,378347,5373,0,Profit,0.0,None,55,Male,Spring,Eid,Stable
+133,2025-03-28,Headphones,Food,South,66,224070,226932,18616,5305,250853,0,26783,Loss,11.95,Market Competition,19,Female,Winter,Diwali,Seasonal Spike
+134,2025-05-14,Shoes,Electronics,East,177,464625,471824,11921,10878,494623,0,29998,Loss,6.46,Low Sales,32,Female,Winter,Holi,Trending
+135,2025-07-09,Refrigerator,Fashion,South,142,282580,243162,19936,8651,271749,10831,0,Profit,0.0,None,51,Female,Spring,Eid,Stable
+136,2025-09-04,Kurta,Fashion,South,122,268156,264702,10732,5367,280801,0,12645,Loss,4.72,High Cost,20,Male,Winter,Valentine,Seasonal Spike
+137,2025-01-21,Backpack,Gift,West,52,165672,143247,15865,10614,169726,0,4054,Loss,2.45,High Logistics,55,Male,Winter,Pongal,Stable
+138,2025-03-09,Umbrella,Fashion,South,143,169169,155172,19375,12899,187446,0,18277,Loss,10.8,High Logistics,40,Male,Monsoon,Valentine,Trending
+139,2025-09-02,Refrigerator,Fashion,North,163,296986,256482,12783,11939,281204,15782,0,Profit,0.0,None,54,Female,Spring,Pongal,High Demand
+140,2025-07-31,Shoes,Electronics,East,55,203500,169197,19803,5086,194086,9414,0,Profit,0.0,None,23,Male,Monsoon,Pongal,Low Demand
+141,2025-02-02,Mobile,Gift,North,30,236250,230783,15043,5590,251416,0,15166,Loss,6.42,Off Season,33,Male,Winter,Holi,Trending
+142,2025-07-24,T-Shirt,Accessories,East,160,138080,112406,5185,13243,130834,7246,0,Profit,0.0,None,36,Female,Summer,None,Seasonal Spike
+143,2025-10-22,Mobile,Accessories,East,154,966196,830389,5523,11536,847448,118748,0,Profit,0.0,None,39,Male,Winter,Navratri,Trending
+144,2025-07-01,Cooler,Electronics,North,56,129136,126374,12066,14412,152852,0,23716,Loss,18.37,Off Season,49,Male,Spring,Pongal,High Demand
+145,2025-10-23,Smartphone,Fashion,East,132,2225388,2126447,7885,9413,2143745,81643,0,Profit,0.0,None,48,Female,Spring,Valentine,Stable
+146,2025-08-06,Cooler,Accessories,North,103,110004,120848,17916,13470,152234,0,42230,Loss,38.39,Market Competition,38,Female,Spring,None,Seasonal Spike
+147,2025-10-18,Sweets,Accessories,West,186,333126,321331,14647,13821,349799,0,16673,Loss,5.01,High Cost,36,Female,Spring,Navratri,Stable
+148,2025-02-10,Fan,Electronics,North,128,208384,214617,19380,10950,244947,0,36563,Loss,17.55,Overstock,55,Female,Monsoon,Valentine,High Demand
+149,2025-01-12,Smartphone,Gift,North,200,3896000,3958452,11260,7071,3976783,0,80783,Loss,2.07,High Cost,51,Male,Summer,Diwali,Trending
+150,2025-06-16,TV,Accessories,North,150,803550,666809,4172,5001,675982,127568,0,Profit,0.0,None,51,Male,Spring,None,Stable
+151,2025-10-01,Headphones,Accessories,East,86,260580,267003,18908,9454,295365,0,34785,Loss,13.35,Off Season,52,Female,Monsoon,Ugadi,Low Demand
+152,2025-04-04,Smartphone,Food,West,173,2674580,2272056,10885,10104,2293045,381535,0,Profit,0.0,None,49,Female,Monsoon,Diwali,Trending
+153,2025-02-11,Smartphone,Fashion,North,208,3001232,3240096,6598,5691,3252385,0,251153,Loss,8.37,Overstock,53,Male,Spring,Navratri,Trending
+154,2025-04-12,T-Shirt,Fashion,South,38,60420,65125,16444,5983,87552,0,27132,Loss,44.91,Low Sales,40,Male,Summer,Valentine,Stable
+155,2025-04-30,Watch,Electronics,North,122,308172,325938,13808,14085,353831,0,45659,Loss,14.82,High Cost,22,Male,Monsoon,None,Trending
+156,2025-10-05,T-Shirt,Accessories,West,208,248144,201195,14795,6092,222082,26062,0,Profit,0.0,None,20,Male,Winter,Diwali,High Demand
+157,2025-02-24,TV,Gift,West,18,81108,83878,4955,9355,98188,0,17080,Loss,21.06,Market Competition,20,Male,Spring,Holi,High Demand
+158,2025-09-23,Umbrella,Fashion,South,146,171404,161377,14773,7591,183741,0,12337,Loss,7.2,Market Competition,46,Female,Spring,Eid,Trending
+159,2025-07-31,Blazer,Accessories,North,165,269445,283949,4355,9521,297825,0,28380,Loss,10.53,Market Competition,50,Male,Summer,Diwali,Stable
+160,2025-07-02,Smartphone,Gift,North,103,1806414,1941893,9478,10700,1962071,0,155657,Loss,8.62,High Logistics,44,Male,Winter,Diwali,Stable
+161,2025-01-28,Laptop,Electronics,West,91,1297205,1239361,8301,6393,1254055,43150,0,Profit,0.0,None,43,Female,Winter,Valentine,Stable
+162,2025-10-14,Cooler,Accessories,East,176,329648,338317,6773,10729,355819,0,26171,Loss,7.94,Market Competition,46,Male,Monsoon,Diwali,High Demand
+163,2025-04-13,Perfume,Food,South,203,576114,587701,12991,12913,613605,0,37491,Loss,6.51,Market Competition,27,Male,Monsoon,Diwali,Trending
+164,2025-03-29,Sweets,Food,South,188,196648,158924,7258,13202,179384,17264,0,Profit,0.0,None,47,Male,Summer,Ugadi,Seasonal Spike
+165,2025-06-06,Watch,Accessories,East,200,547600,555028,12531,8726,576285,0,28685,Loss,5.24,High Logistics,33,Male,Monsoon,None,Seasonal Spike
+166,2025-06-18,Jeans,Electronics,South,62,216194,221585,18420,11783,251788,0,35594,Loss,16.46,High Logistics,37,Female,Spring,Valentine,High Demand
+167,2025-02-24,Smartphone,Gift,West,205,3695330,3110888,4528,11694,3127110,568220,0,Profit,0.0,None,18,Female,Monsoon,Ugadi,High Demand
+168,2025-04-15,Gift Hampers,Gift,East,167,475783,504753,8025,13498,526276,0,50493,Loss,10.61,Market Competition,43,Male,Monsoon,Diwali,High Demand
+169,2025-05-30,Jeans,Accessories,North,208,243360,225151,18690,8308,252149,0,8789,Loss,3.61,High Logistics,23,Female,Spring,Valentine,Low Demand
+170,2025-02-16,Umbrella,Accessories,North,31,12555,10953,6960,6926,24839,0,12284,Loss,97.84,High Cost,30,Male,Spring,Diwali,Stable
+171,2025-09-12,TV,Electronics,West,165,810315,669741,4531,14471,688743,121572,0,Profit,0.0,None,37,Female,Summer,Diwali,Low Demand
+172,2025-08-02,AC,Gift,North,166,721104,684080,12595,8438,705113,15991,0,Profit,0.0,None,31,Male,Summer,Holi,Stable
+173,2025-12-19,Kurta,Food,East,165,239745,243578,7396,11793,262767,0,23022,Loss,9.6,High Logistics,20,Female,Spring,Ugadi,Low Demand
+174,2025-11-24,Cooler,Food,North,27,63990,59771,14276,12546,86593,0,22603,Loss,35.32,Market Competition,39,Female,Monsoon,Diwali,Seasonal Spike
+175,2025-06-03,Backpack,Food,West,63,131544,123527,7893,11088,142508,0,10964,Loss,8.33,High Logistics,37,Male,Spring,Valentine,Low Demand
+176,2025-07-11,Sweets,Gift,West,123,180687,194843,15256,14736,224835,0,44148,Loss,24.43,Low Sales,39,Female,Summer,Holi,Seasonal Spike
+177,2025-12-04,Mixer,Food,West,157,131880,114305,19454,9641,143400,0,11520,Loss,8.74,Market Competition,33,Male,Summer,None,Seasonal Spike
+178,2025-06-23,Shoes,Accessories,West,43,167098,182400,16382,12629,211411,0,44313,Loss,26.52,Market Competition,26,Male,Monsoon,Holi,Stable
+179,2025-06-08,Perfume,Accessories,East,69,258405,251536,6087,13322,270945,0,12540,Loss,4.85,Low Sales,43,Male,Spring,Holi,Trending
+180,2025-09-30,Jeans,Accessories,East,71,156271,138162,5599,12294,156055,216,0,Profit,0.0,None,29,Female,Monsoon,Holi,Seasonal Spike
+181,2025-02-25,Perfume,Electronics,East,93,358329,384816,19346,12122,416284,0,57955,Loss,16.17,Overstock,40,Male,Summer,Pongal,High Demand
+182,2025-05-31,Sweets,Food,West,10,6840,7181,9902,11835,28918,0,22078,Loss,322.78,High Cost,36,Male,Winter,Diwali,Low Demand
+183,2025-11-28,Headphones,Gift,East,178,842118,812593,17874,8878,839345,2773,0,Profit,0.0,None,50,Female,Monsoon,Eid,Low Demand
+184,2025-01-20,Backpack,Accessories,North,38,120612,114727,4176,12681,131584,0,10972,Loss,9.1,High Logistics,50,Female,Spring,Pongal,Trending
+185,2025-05-31,Laptop,Gift,West,187,1866447,1606369,14089,9603,1630061,236386,0,Profit,0.0,None,35,Female,Summer,Holi,Seasonal Spike
+186,2025-03-31,Backpack,Gift,East,104,354744,282867,8331,6900,298098,56646,0,Profit,0.0,None,21,Male,Monsoon,Pongal,Stable
+187,2025-06-04,TV,Electronics,South,107,382525,331459,17145,6610,355214,27311,0,Profit,0.0,None,34,Female,Monsoon,Ugadi,Seasonal Spike
+188,2025-04-10,Saree,Food,South,90,388800,421520,14454,6995,442969,0,54169,Loss,13.93,Overstock,25,Male,Winter,Pongal,Seasonal Spike
+189,2025-04-05,Umbrella,Gift,North,85,35955,33702,19213,8287,61202,0,25247,Loss,70.22,Market Competition,43,Male,Monsoon,Holi,High Demand
+190,2025-10-04,Raincoat,Gift,West,123,232593,234089,16631,13039,263759,0,31166,Loss,13.4,High Logistics,45,Female,Summer,Ugadi,Low Demand
+191,2025-07-16,Earphones,Accessories,West,155,135005,132547,9886,12970,155403,0,20398,Loss,15.11,Low Sales,46,Male,Winter,Diwali,High Demand
+192,2025-01-13,Mixer,Electronics,South,135,91125,75420,13492,8817,97729,0,6604,Loss,7.25,Low Sales,20,Male,Monsoon,Diwali,Stable
+193,2025-11-13,Sweets,Gift,South,13,23257,25402,13436,13943,52781,0,29524,Loss,126.95,High Cost,38,Male,Summer,Valentine,Trending
+194,2025-02-02,Umbrella,Food,South,203,63539,58023,17228,12798,88049,0,24510,Loss,38.57,Overstock,26,Male,Winter,None,Seasonal Spike
+195,2025-08-19,Raincoat,Gift,South,166,197706,171699,7173,6846,185718,11988,0,Profit,0.0,None,27,Female,Monsoon,Valentine,High Demand
+196,2025-12-10,Sweets,Fashion,North,82,130134,132615,18718,10336,161669,0,31535,Loss,24.23,High Cost,25,Female,Winter,Holi,High Demand
+197,2025-07-31,Cooler,Accessories,South,28,30688,26692,5820,12627,45139,0,14451,Loss,47.09,High Logistics,44,Male,Spring,Ugadi,Trending
+198,2025-11-06,AC,Electronics,South,157,369578,337678,4724,5656,348058,21520,0,Profit,0.0,None,48,Male,Monsoon,Pongal,Stable
+199,2025-12-23,Umbrella,Accessories,East,71,104228,107040,18322,11641,137003,0,32775,Loss,31.45,High Cost,41,Female,Summer,Holi,Stable
+200,2025-12-20,Watch,Electronics,West,85,401710,335863,13155,6097,355115,46595,0,Profit,0.0,None,53,Male,Winter,Eid,High Demand
+201,2025-10-04,Umbrella,Accessories,South,202,280982,236101,18483,12501,267085,13897,0,Profit,0.0,None,23,Male,Monsoon,Valentine,Trending
+202,2025-02-09,Umbrella,Gift,North,38,26106,27337,12513,10503,50353,0,24247,Loss,92.88,High Logistics,55,Female,Spring,Navratri,Seasonal Spike
+203,2025-12-07,Earphones,Electronics,East,127,256921,213655,5915,5674,225244,31677,0,Profit,0.0,None,38,Male,Monsoon,None,Trending
+204,2025-04-05,Cooler,Electronics,West,180,342900,355197,15936,12243,383376,0,40476,Loss,11.8,Off Season,25,Female,Summer,Valentine,Seasonal Spike
+205,2025-03-01,Laptop,Fashion,East,168,2067408,2236705,18883,10915,2266503,0,199095,Loss,9.63,High Logistics,27,Female,Spring,Pongal,Trending
+206,2025-01-07,Laptop,Food,North,88,1248808,1000491,19730,14677,1034898,213910,0,Profit,0.0,None,42,Male,Summer,Pongal,Trending
+207,2025-08-01,AC,Electronics,East,191,537856,440900,14910,9713,465523,72333,0,Profit,0.0,None,44,Male,Monsoon,Ugadi,Low Demand
+208,2025-03-03,Mobile,Accessories,West,163,1245972,1080574,10873,10832,1102279,143693,0,Profit,0.0,None,21,Female,Spring,Holi,Seasonal Spike
+209,2025-04-10,Blazer,Gift,West,163,936272,795569,12247,8622,816438,119834,0,Profit,0.0,None,30,Male,Monsoon,Navratri,Low Demand
+210,2025-03-01,Smartphone,Fashion,East,99,1297296,1044161,16692,12934,1073787,223509,0,Profit,0.0,None,45,Male,Winter,Holi,Low Demand
+211,2025-12-04,Saree,Electronics,West,130,974090,1026344,16792,8962,1052098,0,78008,Loss,8.01,Market Competition,54,Male,Summer,Diwali,Seasonal Spike
+212,2025-04-22,Earphones,Gift,North,53,129532,132595,9149,7025,148769,0,19237,Loss,14.85,High Logistics,25,Male,Monsoon,Eid,Trending
+213,2025-10-13,Mixer,Fashion,West,93,161262,146238,12563,6392,165193,0,3931,Loss,2.44,Low Sales,27,Female,Monsoon,Holi,High Demand
+214,2025-02-03,T-Shirt,Gift,North,61,68869,56410,12017,13147,81574,0,12705,Loss,18.45,High Cost,26,Male,Summer,Diwali,Low Demand
+215,2025-09-13,Perfume,Fashion,South,107,301098,236559,16516,5517,258592,42506,0,Profit,0.0,None,45,Male,Monsoon,Navratri,Trending
+216,2025-07-12,Jeans,Accessories,West,18,22464,19415,13683,11189,44287,0,21823,Loss,97.15,Market Competition,40,Female,Spring,Diwali,Low Demand
+217,2025-10-30,Sweets,Gift,North,99,108009,95518,11551,11921,118990,0,10981,Loss,10.17,Market Competition,50,Female,Spring,Diwali,Stable
+218,2025-10-29,Headphones,Food,East,156,551304,480711,4778,9871,495360,55944,0,Profit,0.0,None,54,Female,Winter,Holi,Seasonal Spike
+219,2025-02-18,Backpack,Food,North,27,71712,76150,14286,13457,103893,0,32181,Loss,44.88,High Cost,54,Female,Winter,Navratri,Trending
+220,2025-11-23,Shoes,Electronics,East,154,354970,289775,7144,5453,302372,52598,0,Profit,0.0,None,33,Female,Monsoon,Navratri,Seasonal Spike
+221,2025-08-12,Raincoat,Fashion,South,50,53000,57336,15865,7302,80503,0,27503,Loss,51.89,High Cost,25,Male,Spring,Navratri,Low Demand
+222,2025-05-02,Kurta,Fashion,North,94,235752,256559,18408,7374,282341,0,46589,Loss,19.76,Off Season,48,Female,Spring,Diwali,Seasonal Spike
+223,2025-01-18,Mixer,Fashion,South,74,45584,47069,8489,6312,61870,0,16286,Loss,35.73,High Logistics,48,Female,Spring,Pongal,Low Demand
+224,2025-03-24,Earphones,Food,West,100,71300,58142,8089,13460,79691,0,8391,Loss,11.77,Overstock,26,Female,Spring,Navratri,Stable
+225,2025-03-10,Mobile,Gift,North,82,458462,445682,6445,6459,458586,0,124,Loss,0.03,Off Season,28,Male,Summer,Pongal,Stable
+226,2025-12-11,TV,Fashion,South,192,689280,673879,18865,9068,701812,0,12532,Loss,1.82,Off Season,55,Female,Summer,Diwali,Stable
+227,2025-03-10,Watch,Accessories,South,192,725952,722179,6166,14167,742512,0,16560,Loss,2.28,Low Sales,55,Male,Spring,Valentine,Seasonal Spike
+228,2025-09-10,Watch,Accessories,South,32,53760,51492,19120,12208,82820,0,29060,Loss,54.06,Low Sales,30,Male,Summer,Ugadi,High Demand
+229,2025-01-19,TV,Food,South,190,860130,831517,19919,5067,856503,3627,0,Profit,0.0,None,51,Male,Monsoon,Holi,High Demand
+230,2025-09-13,Perfume,Fashion,North,16,39280,42547,16031,14325,72903,0,33623,Loss,85.6,High Cost,31,Male,Spring,Eid,Low Demand
+231,2025-02-06,Shoes,Electronics,East,33,87384,78199,5574,11020,94793,0,7409,Loss,8.48,Market Competition,30,Female,Monsoon,Pongal,Stable
+232,2025-05-18,Backpack,Electronics,East,33,37719,40370,11825,9921,62116,0,24397,Loss,64.68,High Cost,26,Female,Winter,Pongal,Trending
+233,2025-10-19,Sweets,Electronics,West,21,16233,13094,18364,9876,41334,0,25101,Loss,154.63,Off Season,55,Female,Monsoon,None,Trending
+234,2025-04-06,Cooler,Gift,West,201,339288,266151,5833,5260,277244,62044,0,Profit,0.0,None,30,Male,Winter,Navratri,High Demand
+235,2025-11-29,Refrigerator,Accessories,South,32,112896,123444,17903,13121,154468,0,41572,Loss,36.82,Overstock,55,Female,Summer,Navratri,Stable
+236,2025-09-06,Saree,Electronics,East,69,489969,436087,7802,13317,457206,32763,0,Profit,0.0,None,32,Female,Monsoon,Valentine,Trending
+237,2025-12-31,Fan,Accessories,North,130,157040,140433,6598,7862,154893,2147,0,Profit,0.0,None,50,Male,Summer,Eid,Stable
+238,2025-02-28,Kurta,Gift,West,153,350829,330599,6736,6934,344269,6560,0,Profit,0.0,None,31,Female,Winter,None,Stable
+239,2025-09-17,TV,Fashion,South,175,536200,547474,12677,11909,572060,0,35860,Loss,6.69,High Cost,26,Female,Monsoon,Pongal,Stable
+240,2025-09-22,Perfume,Food,West,123,416724,421264,9139,10638,441041,0,24317,Loss,5.84,Low Sales,35,Male,Monsoon,Navratri,High Demand
+241,2025-10-06,Kurta,Electronics,East,188,165440,176177,12846,14707,203730,0,38290,Loss,23.14,Off Season,33,Female,Monsoon,Holi,Low Demand
+242,2025-07-10,Mobile,Electronics,North,41,104222,105117,12514,9057,126688,0,22466,Loss,21.56,Low Sales,38,Male,Spring,Navratri,Low Demand
+243,2025-03-17,Earphones,Accessories,East,30,79650,75018,11942,12499,99459,0,19809,Loss,24.87,High Cost,50,Male,Winter,Navratri,Stable
+244,2025-01-17,Mixer,Gift,North,40,54400,46184,17420,13008,76612,0,22212,Loss,40.83,Low Sales,25,Female,Summer,Diwali,Stable
+245,2025-09-04,Backpack,Food,East,96,168288,182859,18582,12259,213700,0,45412,Loss,26.98,Overstock,35,Male,Winter,Diwali,Seasonal Spike
+246,2025-11-19,Earphones,Food,West,174,221850,179052,12741,14942,206735,15115,0,Profit,0.0,None,38,Female,Summer,Navratri,Low Demand
+247,2025-06-24,Raincoat,Gift,East,16,16656,15070,9243,7334,31647,0,14991,Loss,90.0,High Logistics,38,Female,Monsoon,Holi,Low Demand
+248,2025-04-14,Refrigerator,Electronics,South,136,394808,379741,11306,6374,397421,0,2613,Loss,0.66,Overstock,50,Male,Winter,Eid,Seasonal Spike
+249,2025-03-28,Refrigerator,Electronics,East,152,659984,578280,10476,7014,595770,64214,0,Profit,0.0,None,26,Female,Monsoon,Ugadi,Seasonal Spike
+250,2025-09-16,Watch,Food,North,202,477124,488569,12816,6329,507714,0,30590,Loss,6.41,Overstock,22,Male,Monsoon,Holi,Trending
+251,2025-07-12,Kurta,Food,East,55,95755,74907,17453,11489,103849,0,8094,Loss,8.45,Low Sales,35,Female,Winter,Ugadi,Seasonal Spike
+252,2025-12-11,Perfume,Electronics,South,26,84812,89326,9292,12086,110704,0,25892,Loss,30.53,High Logistics,35,Male,Monsoon,Navratri,Trending
+253,2025-09-22,Sweets,Gift,West,81,136242,127194,17239,5393,149826,0,13584,Loss,9.97,Market Competition,39,Female,Winter,Holi,Stable
+254,2025-05-03,Watch,Fashion,North,143,580723,465189,15101,5914,486204,94519,0,Profit,0.0,None,53,Male,Spring,Pongal,Stable
+255,2025-02-19,Kurta,Accessories,South,163,300572,321431,6064,13337,340832,0,40260,Loss,13.39,Off Season,40,Female,Monsoon,Navratri,High Demand
+256,2025-05-05,Smartphone,Fashion,West,42,550452,439448,12308,14166,465922,84530,0,Profit,0.0,None,21,Female,Spring,Ugadi,High Demand
+257,2025-11-24,Cooler,Fashion,North,58,117624,109307,7492,8916,125715,0,8091,Loss,6.88,High Logistics,39,Female,Winter,Pongal,High Demand
+258,2025-01-04,T-Shirt,Fashion,West,101,99081,82865,8289,6657,97811,1270,0,Profit,0.0,None,19,Male,Monsoon,Holi,Trending
+259,2025-04-18,Laptop,Accessories,South,104,811928,709737,6434,10368,726539,85389,0,Profit,0.0,None,33,Male,Spring,Valentine,Seasonal Spike
+260,2025-10-27,TV,Gift,West,210,962430,814508,18661,8325,841494,120936,0,Profit,0.0,None,46,Male,Monsoon,Ugadi,Trending
+261,2025-08-06,Fan,Electronics,South,105,133455,117633,10264,5404,133301,154,0,Profit,0.0,None,29,Female,Winter,None,Low Demand
+262,2025-07-03,Gift Hampers,Food,West,80,332320,346655,16830,11616,375101,0,42781,Loss,12.87,High Logistics,55,Male,Monsoon,Valentine,Stable
+263,2025-04-27,Refrigerator,Gift,East,69,338307,317986,14794,10810,343590,0,5283,Loss,1.56,Off Season,32,Female,Monsoon,Pongal,Seasonal Spike
+264,2025-06-03,Watch,Electronics,West,155,618295,516187,15057,14058,545302,72993,0,Profit,0.0,None,29,Male,Monsoon,Diwali,High Demand
+265,2025-04-12,Gift Hampers,Accessories,North,62,304544,322373,9075,12081,343529,0,38985,Loss,12.8,Overstock,48,Male,Spring,Ugadi,Seasonal Spike
+266,2025-12-17,Jeans,Food,South,11,34749,31719,6942,12079,50740,0,15991,Loss,46.02,High Logistics,42,Male,Summer,Pongal,Low Demand
+267,2025-05-03,AC,Food,North,180,1029960,928992,16221,11542,956755,73205,0,Profit,0.0,None,30,Female,Summer,Diwali,Trending
+268,2025-02-28,Earphones,Gift,North,181,414852,333884,16510,5183,355577,59275,0,Profit,0.0,None,35,Male,Monsoon,Eid,High Demand
+269,2025-04-21,Earphones,Fashion,South,123,113283,103646,4238,10523,118407,0,5124,Loss,4.52,High Cost,22,Male,Summer,Valentine,High Demand
+270,2025-01-23,Raincoat,Electronics,West,93,194835,192993,8562,11045,212600,0,17765,Loss,9.12,Low Sales,22,Male,Monsoon,None,Seasonal Spike
+271,2025-09-13,Umbrella,Electronics,South,74,99604,85105,14098,7032,106235,0,6631,Loss,6.66,Off Season,33,Female,Winter,Holi,Low Demand
+272,2025-03-12,T-Shirt,Accessories,North,61,119377,113716,18854,9068,141638,0,22261,Loss,18.65,Overstock,32,Female,Spring,Valentine,Stable
+273,2025-11-19,Headphones,Fashion,East,27,106029,92986,13444,12344,118774,0,12745,Loss,12.02,Overstock,30,Female,Monsoon,Holi,Trending
+274,2025-07-23,Fan,Gift,East,122,204350,196152,11878,6178,214208,0,9858,Loss,4.82,Off Season,26,Female,Winter,Valentine,High Demand
+275,2025-01-03,Headphones,Electronics,North,135,372600,373667,14664,11313,399644,0,27044,Loss,7.26,High Logistics,33,Male,Monsoon,Diwali,Trending
+276,2025-11-20,Earphones,Fashion,South,76,88236,88358,12202,13735,114295,0,26059,Loss,29.53,Overstock,42,Female,Monsoon,Holi,Low Demand
+277,2025-11-22,Backpack,Food,South,78,121914,114701,5806,12383,132890,0,10976,Loss,9.0,Market Competition,31,Male,Winter,Diwali,High Demand
+278,2025-04-09,Mobile,Accessories,East,170,833170,675692,12557,5118,693367,139803,0,Profit,0.0,None,42,Female,Monsoon,Navratri,Trending
+279,2025-11-06,Raincoat,Food,North,184,166520,149517,14131,12785,176433,0,9913,Loss,5.95,Market Competition,44,Male,Summer,Eid,Low Demand
+280,2025-11-21,T-Shirt,Fashion,North,183,348249,360431,8937,13990,383358,0,35109,Loss,10.08,High Logistics,28,Female,Summer,Navratri,Seasonal Spike
+281,2025-05-04,Refrigerator,Gift,South,202,955662,942355,10176,11252,963783,0,8121,Loss,0.85,Overstock,53,Female,Winter,Ugadi,Trending
+282,2025-03-01,Laptop,Fashion,West,32,470464,445209,13856,14679,473744,0,3280,Loss,0.7,High Cost,24,Female,Summer,Navratri,Trending
+283,2025-03-16,Laptop,Gift,East,184,1364360,1130869,15743,8450,1155062,209298,0,Profit,0.0,None,32,Male,Winter,Navratri,Stable
+284,2025-06-03,Perfume,Gift,West,150,525900,487199,6681,14456,508336,17564,0,Profit,0.0,None,26,Female,Monsoon,None,High Demand
+285,2025-04-18,Cooler,Gift,West,102,160242,126731,7946,11498,146175,14067,0,Profit,0.0,None,49,Female,Winter,Pongal,Low Demand
+286,2025-08-26,Blazer,Accessories,North,171,388854,374410,5629,10328,390367,0,1513,Loss,0.39,Low Sales,52,Male,Monsoon,Diwali,Stable
+287,2025-10-12,Shoes,Electronics,East,26,26546,27938,4573,6386,38897,0,12351,Loss,46.53,Low Sales,50,Female,Spring,Valentine,Stable
+288,2025-12-03,Headphones,Gift,North,21,91287,88793,7539,14695,111027,0,19740,Loss,21.62,Off Season,35,Male,Monsoon,Holi,Seasonal Spike
+289,2025-05-11,Mobile,Accessories,South,112,411376,324284,13889,9055,347228,64148,0,Profit,0.0,None,22,Female,Summer,Holi,Seasonal Spike
+290,2025-07-28,Gift Hampers,Food,West,102,463488,451617,18689,5785,476091,0,12603,Loss,2.72,High Cost,38,Female,Winter,Eid,Seasonal Spike
+291,2025-10-10,Kurta,Accessories,East,161,324576,305332,8519,12008,325859,0,1283,Loss,0.4,Market Competition,32,Female,Summer,None,Stable
+292,2025-06-10,Gift Hampers,Fashion,West,196,348488,351461,15511,13754,380726,0,32238,Loss,9.25,Overstock,40,Male,Summer,Navratri,High Demand
+293,2025-12-12,Saree,Gift,South,29,85985,73051,8994,13446,95491,0,9506,Loss,11.06,Low Sales,47,Female,Summer,Eid,Low Demand
+294,2025-11-12,Jeans,Food,North,100,296700,268962,8903,10971,288836,7864,0,Profit,0.0,None,45,Male,Spring,Holi,Stable
+295,2025-12-03,Jeans,Gift,South,100,92900,82120,16523,11551,110194,0,17294,Loss,18.62,Market Competition,42,Male,Summer,Holi,Low Demand
+296,2025-03-06,Smartphone,Food,West,206,3957878,4346392,8052,12031,4366475,0,408597,Loss,10.32,High Cost,48,Male,Winter,Ugadi,Seasonal Spike
+297,2025-11-19,Blazer,Gift,South,40,132640,116374,8411,10956,135741,0,3101,Loss,2.34,Off Season,40,Female,Winter,Eid,Low Demand
+298,2025-04-04,Sweets,Fashion,West,179,287474,246146,8521,8441,263108,24366,0,Profit,0.0,None,55,Female,Summer,Holi,High Demand
+299,2025-11-19,Mixer,Electronics,West,20,31420,33505,11347,6923,51775,0,20355,Loss,64.78,High Logistics,22,Female,Monsoon,Diwali,High Demand
+300,2025-11-03,Mobile,Gift,North,21,120876,117186,4145,13401,134732,0,13856,Loss,11.46,High Logistics,50,Female,Spring,Ugadi,Trending
+301,2025-12-29,Mobile,Electronics,West,53,410167,354586,6189,11690,372465,37702,0,Profit,0.0,None,36,Female,Summer,Diwali,Trending
+302,2025-04-23,Mixer,Food,South,75,76650,62085,6973,12526,81584,0,4934,Loss,6.44,High Cost,29,Male,Monsoon,Valentine,Trending
+303,2025-01-11,Laptop,Gift,South,110,1645380,1414154,5369,9385,1428908,216472,0,Profit,0.0,None,27,Male,Summer,Holi,Seasonal Spike
+304,2025-06-23,Earphones,Fashion,South,45,67410,55639,18944,8675,83258,0,15848,Loss,23.51,Low Sales,32,Female,Monsoon,Valentine,Trending
+305,2025-12-02,Laptop,Gift,East,185,1265585,1047993,14932,9940,1072865,192720,0,Profit,0.0,None,36,Female,Summer,None,Stable
+306,2025-12-05,T-Shirt,Food,West,10,6960,6973,10782,14858,32613,0,25653,Loss,368.58,Overstock,39,Male,Winter,Pongal,Stable
+307,2025-10-09,TV,Electronics,East,146,414932,436342,18201,7283,461826,0,46894,Loss,11.3,Off Season,47,Male,Monsoon,Ugadi,High Demand
+308,2025-04-25,Sweets,Gift,West,188,169388,140237,6988,12696,159921,9467,0,Profit,0.0,None,26,Female,Monsoon,Pongal,Trending
+309,2025-08-16,Blazer,Fashion,North,38,213218,192070,19582,7050,218702,0,5484,Loss,2.57,Overstock,31,Female,Summer,Ugadi,Stable
+310,2025-04-05,Mixer,Electronics,West,187,274516,219860,13783,5179,238822,35694,0,Profit,0.0,None,37,Male,Winter,Diwali,High Demand
+311,2025-05-18,Gift Hampers,Electronics,West,154,217602,171378,17042,11260,199680,17922,0,Profit,0.0,None,48,Male,Spring,Valentine,High Demand
+312,2025-12-16,Jeans,Fashion,West,193,507976,551948,13288,13151,578387,0,70411,Loss,13.86,Low Sales,18,Male,Spring,Holi,Stable
+313,2025-02-18,Jeans,Food,South,85,221850,204338,12396,10138,226872,0,5022,Loss,2.26,Off Season,23,Female,Monsoon,None,Low Demand
+314,2025-11-14,Blazer,Fashion,South,189,1111887,1140606,7268,11578,1159452,0,47565,Loss,4.28,Off Season,22,Female,Spring,Navratri,High Demand
+315,2025-12-26,Mixer,Accessories,West,81,148311,145851,5369,7322,158542,0,10231,Loss,6.9,Low Sales,35,Female,Summer,None,Stable
+316,2025-08-03,Saree,Gift,North,57,189012,167009,17492,10185,194686,0,5674,Loss,3.0,Low Sales,27,Female,Winter,Navratri,Trending
+317,2025-02-28,Perfume,Accessories,North,143,483769,434657,9960,5265,449882,33887,0,Profit,0.0,None,37,Female,Summer,Navratri,Stable
+318,2025-07-31,Raincoat,Food,North,148,290080,283467,10738,6698,300903,0,10823,Loss,3.73,High Logistics,52,Male,Monsoon,Diwali,Trending
+319,2025-08-04,Cooler,Gift,East,151,229218,190040,10134,13502,213676,15542,0,Profit,0.0,None,38,Female,Winter,Pongal,High Demand
+320,2025-10-12,Fan,Gift,East,23,25852,20936,4420,12166,37522,0,11670,Loss,45.14,Low Sales,55,Male,Summer,Holi,Seasonal Spike
+321,2025-07-15,Headphones,Gift,East,172,635196,517217,8627,9292,535136,100060,0,Profit,0.0,None,29,Male,Summer,Navratri,Trending
+322,2025-04-17,Fan,Fashion,East,15,36825,28782,12548,9169,50499,0,13674,Loss,37.13,Low Sales,30,Male,Summer,Valentine,High Demand
+323,2025-07-06,Umbrella,Gift,West,93,125457,125439,18537,9605,153581,0,28124,Loss,22.42,High Logistics,24,Female,Winter,Ugadi,Stable
+324,2025-08-10,Jeans,Accessories,North,91,263354,241601,7046,10861,259508,3846,0,Profit,0.0,None,33,Male,Winter,Eid,Trending
+325,2025-03-16,Watch,Fashion,West,91,432887,417157,14588,11909,443654,0,10767,Loss,2.49,Overstock,45,Female,Spring,Ugadi,High Demand
+326,2025-01-26,TV,Accessories,West,80,348320,276050,14564,5266,295880,52440,0,Profit,0.0,None,22,Female,Summer,Pongal,Trending
+327,2025-05-21,Watch,Food,East,30,130560,111293,5442,8131,124866,5694,0,Profit,0.0,None,41,Male,Summer,None,Low Demand
+328,2025-02-26,Sweets,Food,West,77,106106,93692,15974,12908,122574,0,16468,Loss,15.52,High Cost,23,Female,Spring,Holi,Trending
+329,2025-10-13,Refrigerator,Gift,West,29,131834,141394,7584,10957,159935,0,28101,Loss,21.32,High Logistics,46,Male,Monsoon,Ugadi,Low Demand
+330,2025-05-23,Raincoat,Gift,North,157,296259,245361,12227,12059,269647,26612,0,Profit,0.0,None,50,Female,Summer,Navratri,Trending
+331,2025-07-09,Umbrella,Fashion,East,197,105395,84428,5655,9513,99596,5799,0,Profit,0.0,None,32,Female,Monsoon,Pongal,Low Demand
+332,2025-04-23,Mixer,Food,East,62,60698,66034,14912,12775,93721,0,33023,Loss,54.41,High Logistics,39,Male,Winter,None,Low Demand
+333,2025-03-29,Perfume,Fashion,North,131,472779,518512,8216,12970,539698,0,66919,Loss,14.15,Off Season,41,Female,Summer,Eid,Trending
+334,2025-12-30,Watch,Electronics,East,38,91276,96815,15121,13927,125863,0,34587,Loss,37.89,High Logistics,51,Male,Spring,Eid,Trending
+335,2025-07-20,Backpack,Accessories,North,89,176754,155042,8722,6058,169822,6932,0,Profit,0.0,None,36,Male,Monsoon,Diwali,High Demand
+336,2025-05-25,Backpack,Fashion,West,135,431595,401994,9810,9075,420879,10716,0,Profit,0.0,None,42,Female,Monsoon,Holi,Trending
+337,2025-06-04,Kurta,Food,South,154,434434,435356,12254,10858,458468,0,24034,Loss,5.53,High Logistics,40,Female,Monsoon,Pongal,Stable
+338,2025-08-25,Headphones,Electronics,West,206,740982,590934,17596,6753,615283,125699,0,Profit,0.0,None,39,Male,Spring,Navratri,Trending
+339,2025-02-01,Umbrella,Electronics,West,189,56700,45983,7347,6697,60027,0,3327,Loss,5.87,High Logistics,19,Female,Monsoon,Diwali,Low Demand
+340,2025-06-03,Fan,Accessories,South,70,76930,76438,19713,14646,110797,0,33867,Loss,44.02,High Logistics,41,Female,Monsoon,Pongal,Low Demand
+341,2025-08-26,Raincoat,Accessories,South,17,24616,22277,5028,7858,35163,0,10547,Loss,42.85,Overstock,27,Female,Spring,Navratri,High Demand
+342,2025-05-23,Perfume,Food,East,27,97227,83045,14899,6740,104684,0,7457,Loss,7.67,High Logistics,48,Female,Winter,Ugadi,Low Demand
+343,2025-03-31,Mixer,Accessories,East,26,17160,15787,8687,8694,33168,0,16008,Loss,93.29,High Cost,28,Female,Winter,Holi,Seasonal Spike
+344,2025-01-13,Blazer,Fashion,South,18,79560,76546,6083,13474,96103,0,16543,Loss,20.79,Off Season,24,Male,Monsoon,Ugadi,Low Demand
+345,2025-11-04,Shoes,Food,West,67,209040,185663,8274,8285,202222,6818,0,Profit,0.0,None,39,Male,Winter,Ugadi,Seasonal Spike
+346,2025-06-18,Perfume,Fashion,South,136,443768,407416,8971,8731,425118,18650,0,Profit,0.0,None,19,Male,Summer,Ugadi,Seasonal Spike
+347,2025-11-08,Fan,Fashion,East,23,39008,35582,16330,13785,65697,0,26689,Loss,68.42,Market Competition,20,Male,Winter,Diwali,Low Demand
+348,2025-01-30,Smartphone,Accessories,South,82,714712,772787,16782,14034,803603,0,88891,Loss,12.44,Off Season,33,Female,Spring,Holi,Low Demand
+349,2025-06-27,Raincoat,Electronics,East,81,102627,89914,19812,6384,116110,0,13483,Loss,13.14,Low Sales,35,Female,Monsoon,Diwali,Stable
+350,2025-07-16,Jeans,Fashion,South,62,204166,211999,13065,11358,236422,0,32256,Loss,15.8,Overstock,36,Female,Monsoon,None,High Demand
+351,2025-07-15,Jeans,Gift,South,13,29653,27340,4282,12207,43829,0,14176,Loss,47.81,Low Sales,47,Male,Spring,Navratri,Seasonal Spike
+352,2025-04-22,Raincoat,Fashion,West,80,140240,148006,13500,10199,171705,0,31465,Loss,22.44,Low Sales,53,Male,Summer,None,Trending
+353,2025-01-09,Perfume,Food,West,163,623964,553578,10686,11139,575403,48561,0,Profit,0.0,None,48,Female,Summer,Valentine,Trending
+354,2025-01-23,Laptop,Gift,West,37,313168,317823,12830,6986,337639,0,24471,Loss,7.81,Market Competition,21,Female,Monsoon,Eid,Trending
+355,2025-04-10,Backpack,Food,South,94,308132,262998,17563,7052,287613,20519,0,Profit,0.0,None,52,Male,Monsoon,Valentine,Seasonal Spike
+356,2025-05-14,Laptop,Food,North,40,467680,512941,6168,13436,532545,0,64865,Loss,13.87,Market Competition,42,Female,Spring,Valentine,Stable
+357,2025-12-23,Shoes,Gift,North,40,143320,139011,10060,12430,161501,0,18181,Loss,12.69,High Logistics,38,Female,Winter,None,Low Demand
+358,2025-04-29,Laptop,Accessories,North,22,296582,258362,5942,9716,274020,22562,0,Profit,0.0,None,35,Female,Monsoon,Ugadi,High Demand
+359,2025-05-28,Mobile,Electronics,West,69,460023,435497,17615,12435,465547,0,5524,Loss,1.2,Off Season,25,Male,Monsoon,Pongal,Stable
+360,2025-05-15,Gift Hampers,Gift,North,197,949146,836775,17786,14145,868706,80440,0,Profit,0.0,None,20,Male,Winter,Valentine,Seasonal Spike
+361,2025-07-12,Refrigerator,Gift,North,130,624520,614570,11933,13691,640194,0,15674,Loss,2.51,Overstock,29,Female,Winter,None,Stable
+362,2025-09-08,Blazer,Accessories,North,149,362070,352054,15259,8847,376160,0,14090,Loss,3.89,Low Sales,36,Female,Winter,Pongal,Low Demand
+363,2025-10-15,Watch,Food,North,115,401120,329459,12843,5326,347628,53492,0,Profit,0.0,None,19,Female,Summer,Eid,Trending
+364,2025-10-11,Gift Hampers,Fashion,South,102,268158,212791,8638,9939,231368,36790,0,Profit,0.0,None,19,Male,Winter,Diwali,Trending
+365,2025-03-05,Fan,Accessories,South,199,405562,342640,8329,14440,365409,40153,0,Profit,0.0,None,48,Female,Spring,Pongal,Low Demand
+366,2025-04-24,Raincoat,Electronics,North,133,322791,318175,9446,7355,334976,0,12185,Loss,3.77,Overstock,23,Male,Winter,Ugadi,Stable
+367,2025-10-31,Refrigerator,Fashion,South,113,465560,437598,19720,8862,466180,0,620,Loss,0.13,Off Season,47,Female,Summer,Holi,Stable
+368,2025-12-25,Gift Hampers,Accessories,South,203,564949,535116,14077,11088,560281,4668,0,Profit,0.0,None,54,Male,Winter,None,Seasonal Spike
+369,2025-12-17,Cooler,Electronics,North,142,209592,169834,14239,12679,196752,12840,0,Profit,0.0,None,28,Male,Spring,Ugadi,Trending
+370,2025-11-18,Headphones,Gift,North,82,311436,301451,16551,11274,329276,0,17840,Loss,5.73,Off Season,54,Female,Monsoon,Ugadi,High Demand
+371,2025-01-02,Refrigerator,Gift,West,167,300767,268764,17740,13552,300056,711,0,Profit,0.0,None,38,Male,Winter,Valentine,Trending
+372,2025-12-31,Smartphone,Accessories,East,135,2617380,2482115,4091,14604,2500810,116570,0,Profit,0.0,None,37,Female,Summer,Eid,Trending
+373,2025-09-15,Headphones,Electronics,North,18,73098,65660,14042,7509,87211,0,14113,Loss,19.31,Overstock,29,Male,Summer,Pongal,Low Demand
+374,2025-01-29,Jeans,Fashion,North,34,78200,63097,11264,5729,80090,0,1890,Loss,2.42,Off Season,30,Female,Winter,Diwali,Trending
+375,2025-05-21,Shoes,Food,West,97,170720,149975,15155,8130,173260,0,2540,Loss,1.49,Overstock,26,Female,Summer,Pongal,Trending
+376,2025-04-02,Mobile,Gift,North,115,531760,583873,11108,10683,605664,0,73904,Loss,13.9,Overstock,36,Male,Spring,None,Low Demand
+377,2025-09-20,Cooler,Food,South,129,277092,253497,9483,10516,273496,3596,0,Profit,0.0,None,24,Male,Spring,None,High Demand
+378,2025-08-28,Shoes,Gift,West,122,422242,458248,10565,14716,483529,0,61287,Loss,14.51,Low Sales,28,Male,Spring,Ugadi,Seasonal Spike
+379,2025-03-13,Smartphone,Food,West,33,431211,337026,6610,10647,354283,76928,0,Profit,0.0,None,24,Female,Monsoon,Ugadi,Stable
+380,2025-12-09,Fan,Accessories,South,205,507990,521050,10047,10935,542032,0,34042,Loss,6.7,Off Season,50,Male,Monsoon,Holi,High Demand
+381,2025-03-12,TV,Gift,West,64,248960,221776,16004,6661,244441,4519,0,Profit,0.0,None,43,Male,Winter,Eid,High Demand
+382,2025-10-22,Saree,Accessories,East,12,70548,74675,5310,7463,87448,0,16900,Loss,23.96,Low Sales,39,Female,Winter,Navratri,Stable
+383,2025-01-25,Jeans,Food,West,41,123943,120305,9853,5599,135757,0,11814,Loss,9.53,Market Competition,43,Male,Winter,Holi,Seasonal Spike
+384,2025-02-18,Smartphone,Gift,East,120,1500000,1372814,4366,8013,1385193,114807,0,Profit,0.0,None,34,Male,Monsoon,Holi,High Demand
+385,2025-10-20,Mobile,Food,South,187,1136773,1125755,8501,9375,1143631,0,6858,Loss,0.6,High Logistics,38,Male,Winter,Ugadi,Low Demand
+386,2025-12-30,Watch,Gift,West,166,653708,650671,8189,11601,670461,0,16753,Loss,2.56,Low Sales,54,Male,Monsoon,Eid,Low Demand
+387,2025-04-17,Mixer,Electronics,North,87,114840,93139,7576,8462,109177,5663,0,Profit,0.0,None,25,Female,Winter,Valentine,Stable
+388,2025-10-09,Raincoat,Food,South,117,230724,219292,9473,12602,241367,0,10643,Loss,4.61,Overstock,29,Male,Monsoon,Pongal,Stable
+389,2025-07-30,Cooler,Fashion,South,45,103455,95849,15846,8920,120615,0,17160,Loss,16.59,High Cost,48,Male,Spring,Valentine,Trending
+390,2025-02-03,Headphones,Gift,East,127,248285,269742,18472,13803,302017,0,53732,Loss,21.64,Low Sales,52,Male,Monsoon,Navratri,Low Demand
+391,2025-05-30,Fan,Fashion,North,112,263424,244098,15617,13053,272768,0,9344,Loss,3.55,High Cost,34,Female,Spring,Navratri,Trending
+392,2025-08-19,Earphones,Food,North,162,321570,339232,8215,8734,356181,0,34611,Loss,10.76,Low Sales,31,Female,Winter,Diwali,Trending
+393,2025-07-06,Mixer,Electronics,East,132,180312,153615,7382,8675,169672,10640,0,Profit,0.0,None,27,Female,Summer,Ugadi,Trending
+394,2025-09-13,Jeans,Electronics,West,201,384111,397603,6993,9015,413611,0,29500,Loss,7.68,High Cost,47,Male,Summer,None,Seasonal Spike
+395,2025-05-23,Gift Hampers,Gift,West,43,126807,120917,7522,14802,143241,0,16434,Loss,12.96,High Logistics,37,Male,Monsoon,Holi,Stable
+396,2025-11-26,Cooler,Electronics,East,10,20920,22859,19494,7984,50337,0,29417,Loss,140.62,High Logistics,18,Female,Monsoon,Navratri,High Demand
+397,2025-04-02,Gift Hampers,Accessories,North,34,63274,55909,7144,11491,74544,0,11270,Loss,17.81,High Cost,28,Male,Spring,Navratri,Seasonal Spike
+398,2025-08-02,Mixer,Food,South,77,94710,97120,4319,8313,109752,0,15042,Loss,15.88,High Cost,34,Female,Spring,Diwali,Trending
+399,2025-08-07,Fan,Food,South,65,148005,118101,9614,9522,137237,10768,0,Profit,0.0,None,52,Female,Monsoon,None,Low Demand
+400,2025-08-30,Smartphone,Fashion,North,208,4160000,4519024,9918,12304,4541246,0,381246,Loss,9.16,Overstock,31,Male,Spring,Navratri,High Demand
+401,2025-08-24,T-Shirt,Food,South,183,271206,280113,12061,9630,301804,0,30598,Loss,11.28,Market Competition,39,Male,Summer,Holi,Seasonal Spike
+402,2025-02-27,Shoes,Gift,West,156,571584,446997,17569,11388,475954,95630,0,Profit,0.0,None,19,Male,Winter,Eid,Stable
+403,2025-03-19,Mobile,Gift,North,146,1054850,1044948,7304,9963,1062215,0,7365,Loss,0.7,High Cost,45,Female,Winter,Ugadi,Trending
+404,2025-01-14,Smartphone,Accessories,West,106,892096,909847,9191,11801,930839,0,38743,Loss,4.34,High Cost,31,Male,Spring,Navratri,Trending
+405,2025-09-18,Umbrella,Accessories,West,11,9482,7934,4151,7096,19181,0,9699,Loss,102.29,Market Competition,27,Male,Monsoon,Diwali,Low Demand
+406,2025-11-02,Cooler,Food,North,168,312816,277188,18562,12708,308458,4358,0,Profit,0.0,None,20,Male,Monsoon,Diwali,Seasonal Spike
+407,2025-07-13,Kurta,Electronics,South,50,25100,22514,14053,6579,43146,0,18046,Loss,71.9,High Logistics,49,Male,Winter,Ugadi,Seasonal Spike
+408,2025-03-08,Smartphone,Gift,West,200,1910600,1947550,17103,11308,1975961,0,65361,Loss,3.42,Overstock,21,Male,Winter,Diwali,High Demand
+409,2025-11-21,Sweets,Gift,South,111,161283,177240,7052,9182,193474,0,32191,Loss,19.96,Off Season,49,Female,Summer,Eid,Seasonal Spike
+410,2025-05-15,Gift Hampers,Food,East,174,274920,282697,7255,10798,300750,0,25830,Loss,9.4,Market Competition,27,Male,Spring,Ugadi,Seasonal Spike
+411,2025-03-27,T-Shirt,Gift,West,184,270112,228731,16017,14731,259479,10633,0,Profit,0.0,None,22,Male,Monsoon,Valentine,High Demand
+412,2025-09-04,AC,Gift,East,50,180050,158366,5681,14804,178851,1199,0,Profit,0.0,None,48,Male,Monsoon,None,Low Demand
+413,2025-10-05,Mixer,Electronics,East,49,88102,93229,14893,13102,121224,0,33122,Loss,37.6,Overstock,45,Female,Summer,Holi,Trending
+414,2025-05-22,Mobile,Electronics,North,117,757809,730679,5924,8909,745512,12297,0,Profit,0.0,None,41,Female,Monsoon,Diwali,Trending
+415,2025-11-28,Jeans,Accessories,West,112,102592,90675,15454,9311,115440,0,12848,Loss,12.52,High Cost,31,Female,Monsoon,Eid,High Demand
+416,2025-09-13,Gift Hampers,Food,North,167,779723,847542,9288,5260,862090,0,82367,Loss,10.56,Low Sales,30,Female,Spring,Valentine,Stable
+417,2025-11-13,Earphones,Fashion,South,33,88506,87940,8485,5431,101856,0,13350,Loss,15.08,High Logistics,32,Male,Winter,Ugadi,Stable
+418,2025-11-28,Cooler,Gift,West,85,144330,127363,9850,6262,143475,855,0,Profit,0.0,None,26,Female,Winter,Valentine,Low Demand
+419,2025-09-17,Earphones,Accessories,North,36,51012,54412,11809,7422,73643,0,22631,Loss,44.36,Low Sales,40,Male,Spring,None,Low Demand
+420,2025-11-03,TV,Accessories,South,111,522255,509946,12679,11778,534403,0,12148,Loss,2.33,Overstock,28,Male,Winter,Valentine,High Demand
+421,2025-01-16,Blazer,Accessories,West,94,414446,376506,7713,10754,394973,19473,0,Profit,0.0,None,23,Female,Monsoon,Holi,Seasonal Spike
+422,2025-05-12,Headphones,Electronics,West,152,431376,456857,18952,7534,483343,0,51967,Loss,12.05,Market Competition,41,Male,Monsoon,Valentine,Seasonal Spike
+423,2025-03-18,Jeans,Fashion,West,147,480837,412938,6316,8923,428177,52660,0,Profit,0.0,None,49,Male,Monsoon,Diwali,Trending
+424,2025-01-31,TV,Electronics,West,143,666237,624395,9267,14195,647857,18380,0,Profit,0.0,None,48,Female,Spring,Navratri,Trending
+425,2025-12-17,Earphones,Fashion,West,58,103472,108826,12335,11075,132236,0,28764,Loss,27.8,Overstock,20,Male,Summer,Navratri,High Demand
+426,2025-04-24,Earphones,Food,West,192,257856,250533,14186,9230,273949,0,16093,Loss,6.24,High Logistics,54,Female,Winter,None,Stable
+427,2025-12-20,Headphones,Accessories,East,106,459616,497268,8202,11524,516994,0,57378,Loss,12.48,Off Season,52,Female,Spring,None,Low Demand
+428,2025-03-03,Fan,Gift,West,152,133304,132253,12251,8096,152600,0,19296,Loss,14.48,High Cost,38,Male,Summer,Valentine,Trending
+429,2025-05-09,AC,Food,East,61,219722,181463,19797,10202,211462,8260,0,Profit,0.0,None,21,Male,Summer,Pongal,Seasonal Spike
+430,2025-10-01,Headphones,Electronics,South,195,596895,519531,14093,11336,544960,51935,0,Profit,0.0,None,46,Male,Monsoon,None,Trending
+431,2025-11-22,Jeans,Accessories,South,126,255528,233748,10844,12546,257138,0,1610,Loss,0.63,Overstock,46,Female,Monsoon,Navratri,Trending
+432,2025-06-22,Watch,Accessories,South,195,447915,479043,19658,11752,510453,0,62538,Loss,13.96,Low Sales,30,Male,Spring,Valentine,Stable
+433,2025-09-22,Raincoat,Gift,East,16,33536,32708,16507,13693,62908,0,29372,Loss,87.58,Overstock,20,Male,Summer,Holi,Low Demand
+434,2025-01-05,Sweets,Food,West,90,63990,60812,14130,11712,86654,0,22664,Loss,35.42,High Cost,53,Female,Spring,Ugadi,Low Demand
+435,2025-12-06,Smartphone,Accessories,West,203,1754935,1468381,14224,9916,1492521,262414,0,Profit,0.0,None,43,Male,Summer,Ugadi,Trending
+436,2025-05-30,Earphones,Fashion,North,164,210904,182918,16447,12505,211870,0,966,Loss,0.46,Overstock,23,Female,Summer,Valentine,Seasonal Spike
+437,2025-01-06,Mixer,Electronics,West,87,119016,102988,18964,12370,134322,0,15306,Loss,12.86,Overstock,23,Female,Summer,Diwali,High Demand
+438,2025-02-24,Refrigerator,Fashion,South,105,523950,439795,15767,6500,462062,61888,0,Profit,0.0,None,18,Female,Winter,Ugadi,Low Demand
+439,2025-02-10,Fan,Food,South,131,121175,121770,5241,8083,135094,0,13919,Loss,11.49,High Cost,38,Male,Winter,Pongal,Seasonal Spike
+440,2025-06-01,Kurta,Accessories,North,65,124085,109428,16638,10922,136988,0,12903,Loss,10.4,Overstock,22,Female,Spring,Navratri,Trending
+441,2025-09-03,T-Shirt,Accessories,North,205,251125,259222,10249,7447,276918,0,25793,Loss,10.27,High Logistics,41,Male,Monsoon,Valentine,High Demand
+442,2025-10-31,AC,Gift,West,14,36582,32670,5736,6096,44502,0,7920,Loss,21.65,Off Season,48,Female,Winter,Ugadi,Seasonal Spike
+443,2025-09-11,Cooler,Accessories,East,13,28600,26124,7431,10344,43899,0,15299,Loss,53.49,Overstock,32,Female,Monsoon,None,Seasonal Spike
+444,2025-06-24,Backpack,Food,South,42,47586,38136,10382,8165,56683,0,9097,Loss,19.12,Off Season,27,Female,Summer,Navratri,High Demand
+445,2025-04-25,Blazer,Fashion,North,101,201596,184532,17411,5178,207121,0,5525,Loss,2.74,Off Season,34,Male,Winter,None,Low Demand
+446,2025-01-15,Blazer,Accessories,West,104,542152,431973,9349,14053,455375,86777,0,Profit,0.0,None,48,Female,Winter,Eid,Stable
+447,2025-10-09,Headphones,Accessories,North,111,510378,413097,9903,10850,433850,76528,0,Profit,0.0,None,39,Male,Monsoon,Eid,Low Demand
+448,2025-09-10,Fan,Electronics,West,144,162000,175606,19637,7255,202498,0,40498,Loss,25.0,Market Competition,38,Female,Monsoon,Pongal,Low Demand
+449,2025-09-19,Laptop,Accessories,West,181,2135438,2291035,16193,9610,2316838,0,181400,Loss,8.49,Off Season,53,Female,Monsoon,Valentine,High Demand
+450,2025-11-08,Mobile,Food,South,93,254448,270663,17399,9970,298032,0,43584,Loss,17.13,Off Season,47,Male,Winter,None,High Demand
+451,2025-09-19,Headphones,Food,West,65,201500,218218,19239,5000,242457,0,40957,Loss,20.33,Off Season,46,Female,Winter,Holi,Low Demand
+452,2025-07-08,Cooler,Gift,East,199,168155,177964,13499,14133,205596,0,37441,Loss,22.27,Off Season,35,Male,Monsoon,Holi,High Demand
+453,2025-04-21,Gift Hampers,Accessories,East,17,65008,71422,4722,14227,90371,0,25363,Loss,39.02,High Logistics,53,Female,Winter,Diwali,Trending
+454,2025-07-06,Gift Hampers,Electronics,North,126,546210,544149,10681,10903,565733,0,19523,Loss,3.57,High Logistics,23,Female,Winter,Eid,Trending
+455,2025-11-27,Jeans,Accessories,South,20,32860,28309,13018,7698,49025,0,16165,Loss,49.19,Overstock,32,Female,Monsoon,Holi,Trending
+456,2025-07-11,Shoes,Accessories,East,66,259578,247489,5582,8129,261200,0,1622,Loss,0.62,Low Sales,19,Male,Spring,Holi,High Demand
+457,2025-04-06,Perfume,Fashion,West,74,150886,130041,11759,11287,153087,0,2201,Loss,1.46,Market Competition,24,Female,Spring,Navratri,Low Demand
+458,2025-07-14,Sweets,Accessories,West,131,162440,157550,15063,5462,178075,0,15635,Loss,9.63,Market Competition,46,Male,Winter,Navratri,Trending
+459,2025-12-23,Backpack,Accessories,West,74,206534,212149,4718,9952,226819,0,20285,Loss,9.82,High Cost,32,Female,Monsoon,Ugadi,Stable
+460,2025-12-25,Umbrella,Fashion,South,45,16560,13271,5429,9305,28005,0,11445,Loss,69.11,Overstock,40,Female,Monsoon,Ugadi,High Demand
+461,2025-03-03,Headphones,Gift,West,156,539292,422579,4982,13359,440920,98372,0,Profit,0.0,None,18,Male,Spring,Diwali,Trending
+462,2025-03-12,Watch,Gift,East,64,197632,207261,9926,8692,225879,0,28247,Loss,14.29,Off Season,44,Male,Monsoon,Diwali,Trending
+463,2025-07-22,Headphones,Gift,North,110,521070,500091,15542,7384,523017,0,1947,Loss,0.37,Overstock,20,Female,Spring,Pongal,Trending
+464,2025-08-26,Blazer,Food,North,147,385728,364682,14344,6031,385057,671,0,Profit,0.0,None,34,Female,Spring,None,Seasonal Spike
+465,2025-09-20,Refrigerator,Food,North,71,183535,190026,13531,13521,217078,0,33543,Loss,18.28,High Cost,25,Female,Winter,Ugadi,Seasonal Spike
+466,2025-11-21,Watch,Gift,East,105,388605,419351,13021,14561,446933,0,58328,Loss,15.01,Off Season,50,Female,Winter,None,Low Demand
+467,2025-08-07,Blazer,Accessories,West,131,333133,260894,9531,9541,279966,53167,0,Profit,0.0,None,36,Female,Winter,Ugadi,High Demand
+468,2025-11-13,Kurta,Electronics,North,151,174556,149672,13987,7713,171372,3184,0,Profit,0.0,None,29,Male,Spring,Holi,Low Demand
+469,2025-05-03,Perfume,Food,East,158,433868,383133,12176,13315,408624,25244,0,Profit,0.0,None,42,Female,Winter,Eid,High Demand
+470,2025-12-27,Gift Hampers,Electronics,East,53,177073,159704,12043,12148,183895,0,6822,Loss,3.85,Overstock,46,Female,Summer,Pongal,Trending
+471,2025-06-28,Refrigerator,Food,North,76,319048,295116,8803,7320,311239,7809,0,Profit,0.0,None,45,Female,Winter,Ugadi,Stable
+472,2025-06-09,AC,Electronics,West,69,299805,286943,10044,7931,304918,0,5113,Loss,1.71,High Cost,52,Male,Winter,Diwali,Trending
+473,2025-03-29,Mobile,Electronics,West,138,875196,701437,10183,7226,718846,156350,0,Profit,0.0,None,18,Female,Monsoon,Navratri,Stable
+474,2025-10-09,Shoes,Accessories,East,175,535500,482111,10121,5391,497623,37877,0,Profit,0.0,None,38,Female,Winter,Diwali,High Demand
+475,2025-08-11,Blazer,Gift,East,161,413448,361574,4870,10743,377187,36261,0,Profit,0.0,None,47,Female,Monsoon,Holi,Seasonal Spike
+476,2025-05-31,T-Shirt,Electronics,East,20,9000,8019,9350,9668,27037,0,18037,Loss,200.41,Off Season,21,Male,Monsoon,Navratri,Stable
+477,2025-09-21,Sweets,Electronics,West,49,20776,18986,7172,11841,37999,0,17223,Loss,82.9,High Cost,45,Female,Winter,Diwali,Low Demand
+478,2025-03-25,Sweets,Food,East,26,18668,18638,17208,14729,50575,0,31907,Loss,170.92,High Cost,32,Male,Monsoon,Navratri,Trending
+479,2025-06-18,Saree,Food,East,195,634725,555833,7973,7661,571467,63258,0,Profit,0.0,None,48,Male,Spring,Diwali,Stable
+480,2025-07-27,Raincoat,Gift,East,131,285056,231525,5348,5139,242012,43044,0,Profit,0.0,None,27,Female,Monsoon,Holi,High Demand
+481,2025-01-27,Headphones,Accessories,South,18,69156,56321,13721,9774,79816,0,10660,Loss,15.41,Market Competition,51,Male,Spring,Valentine,Low Demand
+482,2025-08-25,Kurta,Food,South,174,449616,380993,11557,7436,399986,49630,0,Profit,0.0,None,27,Male,Summer,Diwali,Seasonal Spike
+483,2025-03-02,Smartphone,Fashion,East,42,438732,369094,5082,5801,379977,58755,0,Profit,0.0,None,20,Female,Monsoon,Valentine,Stable
+484,2025-08-26,Perfume,Accessories,North,125,328500,351606,15809,7957,375372,0,46872,Loss,14.27,High Logistics,20,Male,Spring,Eid,Seasonal Spike
+485,2025-07-10,Watch,Fashion,West,133,600628,477045,9449,5293,491787,108841,0,Profit,0.0,None,44,Male,Monsoon,Pongal,Stable
+486,2025-11-08,Backpack,Gift,North,161,130249,123903,18737,13954,156594,0,26345,Loss,20.23,High Logistics,19,Female,Summer,Navratri,Seasonal Spike
+487,2025-04-20,Shoes,Electronics,North,209,277134,253018,18843,11986,283847,0,6713,Loss,2.42,High Cost,28,Female,Summer,None,Trending
+488,2025-10-05,Earphones,Electronics,West,29,68092,70687,12934,9100,92721,0,24629,Loss,36.17,Overstock,19,Male,Summer,Valentine,High Demand
+489,2025-06-25,AC,Electronics,South,132,280104,236328,4687,5596,246611,33493,0,Profit,0.0,None,46,Male,Summer,Eid,Low Demand
+490,2025-12-07,T-Shirt,Food,East,201,275169,287026,8807,5637,301470,0,26301,Loss,9.56,Low Sales,21,Female,Winter,None,Stable
+491,2025-03-20,Mobile,Food,East,29,143724,152964,6992,14443,174399,0,30675,Loss,21.34,High Cost,55,Male,Winter,Diwali,Trending
+492,2025-06-09,Shoes,Electronics,West,192,437184,355948,11814,5696,373458,63726,0,Profit,0.0,None,48,Female,Monsoon,Holi,Trending
+493,2025-03-23,Backpack,Electronics,South,30,88260,82756,7897,5972,96625,0,8365,Loss,9.48,High Logistics,31,Female,Winter,None,Trending
+494,2025-03-11,Fan,Electronics,East,158,287402,245405,8095,5762,259262,28140,0,Profit,0.0,None,22,Female,Winter,Ugadi,Trending
+495,2025-02-27,Backpack,Fashion,South,193,317678,297591,19550,9487,326628,0,8950,Loss,2.82,High Logistics,21,Female,Summer,Pongal,Stable
+496,2025-03-23,Sweets,Fashion,East,144,116784,127098,8417,7628,143143,0,26359,Loss,22.57,High Logistics,32,Female,Winter,Diwali,High Demand
+497,2025-11-27,TV,Accessories,South,151,542996,583712,14281,13143,611136,0,68140,Loss,12.55,Market Competition,18,Male,Summer,Eid,Seasonal Spike
+498,2025-08-03,Backpack,Food,West,133,363356,288743,9507,10847,309097,54259,0,Profit,0.0,None,48,Male,Spring,Navratri,High Demand
+499,2025-08-09,Shoes,Fashion,West,36,116856,95645,8594,14644,118883,0,2027,Loss,1.73,High Logistics,31,Male,Spring,Ugadi,Seasonal Spike
+500,2025-03-02,Gift Hampers,Food,South,21,101388,97130,6691,5440,109261,0,7873,Loss,7.77,Overstock,24,Male,Spring,Ugadi,High Demand

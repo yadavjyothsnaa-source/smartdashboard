@@ -1,52 +1,40 @@
 "use client";
 
-import { useState, useTransition, useRef } from "react";
-import { uploadCSV } from "@/lib/actions";
+import { useState, useRef } from "react";
 import type { UploadedData } from "@/lib/db";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { Cloud, FileText, CheckCircle2, AlertCircle, ArrowUpRight, Zap, Target, Database, TrendingUp } from "lucide-react";
+import { useTheme } from "@/context/ThemeContext";
 
-// Helper specifically to standardize hydration across Server and Client
 const formatDate = (dateString: string) => {
   if (!dateString) return "N/A";
   const date = new Date(dateString);
-  
   const day = String(date.getDate()).padStart(2, '0');
   const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-  const month = monthNames[date.getMonth()];
-  const year = date.getFullYear();
-  
-  let hours = date.getHours();
-  const minutes = String(date.getMinutes()).padStart(2, '0');
-  const ampm = hours >= 12 ? 'PM' : 'AM';
-  hours = hours % 12;
-  hours = hours ? hours : 12; // the hour '0' should be '12'
-  const strHours = String(hours).padStart(2, '0');
-  
-  return `${day} ${month} ${year}, ${strHours}:${minutes} ${ampm}`;
+  return `${day} ${monthNames[date.getMonth()]} ${date.getFullYear()}, ${date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
 };
+
 export default function UploadClient({ uploads: initialUploads }: { uploads: UploadedData[] }) {
-  const [uploads] = useState<UploadedData[]>(initialUploads);
+  const [uploads, setUploads] = useState<UploadedData[]>(initialUploads);
   const [uploadStatus, setUploadStatus] = useState<string | null>(null);
   const [isUploading, setIsUploading] = useState(false);
+  const [uploadResult, setUploadResult] = useState<any>(null);
   const fileRef = useRef<HTMLInputElement>(null);
+  const { theme } = useTheme();
 
   const handleUpload = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setUploadStatus("Uploading...");
+    setUploadStatus("Processing Intelligence...");
     setIsUploading(true);
+    setUploadResult(null);
     
     try {
       const formData = new FormData(e.currentTarget);
-      formData.append('role', 'analyst'); // Required by Flask
+      formData.append('role', 'analyst');
       
       const file = formData.get('csv') as File;
       if (!file || file.size === 0) {
-        setUploadStatus("Error: No file selected.");
-        setIsUploading(false);
-        return;
-      }
-      if (file.size > 5 * 1024 * 1024) {
-        setUploadStatus("Error: File exceeds 5MB limit.");
+        setUploadStatus("Error: No signal payload.");
         setIsUploading(false);
         return;
       }
@@ -59,90 +47,150 @@ export default function UploadClient({ uploads: initialUploads }: { uploads: Upl
       const data = await res.json();
 
       if (!res.ok) {
-        setUploadStatus(`Error: ${data.error || 'Upload failed'}`);
+        setUploadStatus(`Failure: ${data.error || 'Unknown error'}`);
         setIsUploading(false);
       } else {
-        setUploadStatus("✅ Training Model...");
+        setUploadStatus("Constructing Intelligence...");
         
         setTimeout(() => {
-          setUploadStatus("✅ Generating Predictions...");
-        }, 800);
+          setUploadStatus("Extracting data points...");
+        }, 1200);
 
         setTimeout(() => {
-          setUploadStatus(`✅ Done! Accuracy: ${(data.accuracy * 100).toFixed(1)}% | Predict: ${data.prediction} | Top Factor: ${data.top_features[0]}`);
-          // Wait a moment so user can read the success stats, then refresh history
-          setTimeout(() => {
-            window.location.reload();
-          }, 4000);
-        }, 1600);
+          setUploadStatus(null);
+          setIsUploading(false);
+          setUploadResult(data);
+          const newUpload: UploadedData = {
+            id: Date.now(),
+            user_id: 1,
+            file_name: file.name,
+            file_path: "",
+            upload_date: new Date().toISOString()
+          };
+          setUploads(prev => [newUpload, ...prev]);
+        }, 2500);
       }
     } catch (error) {
-      console.error("Upload Error:", error);
-      setUploadStatus("Error: Network failure during upload.");
+      setUploadStatus("Connection lost. Retrying later.");
       setIsUploading(false);
     }
   };
 
-  return (
-    <div className="max-w-4xl mx-auto space-y-6">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="p-8 rounded-2xl border border-white/10 bg-[#0a0a0c] shadow-2xl flex flex-col gap-6"
-      >
-        <div>
-          <h3 className="text-xl font-semibold text-white mb-6 flex items-center gap-3">
-            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
-            </svg>
-            Upload CSV Data
-          </h3>
-          <form onSubmit={handleUpload} className="flex flex-col gap-4">
-            <div className="border-2 border-dashed border-white/20 rounded-xl p-8 text-center hover:bg-white/5 transition-colors">
-              <input 
-                name="csv" 
-                ref={fileRef} 
-                type="file" 
-                accept=".csv" 
-                required 
-                className="text-white/60 text-sm file:mr-4 file:py-3 file:px-6 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-[#14532d]/20 file:text-[#166534] hover:file:bg-[#14532d]/40 file:transition-colors file:cursor-pointer mx-auto block" 
-              />
-            </div>
-            
-            <button 
-              type="submit" 
-              disabled={isUploading} 
-              className="w-full sm:w-auto self-center px-8 py-3 bg-gradient-to-r from-[#14532d] to-[#166534] text-white rounded-xl text-sm font-semibold hover:shadow-[0_0_20px_rgba(22,101,52,0.4)] transition-all disabled:opacity-50 mt-2"
-            >
-              {isUploading ? 'Processing Dataset...' : 'Upload & Run ML Engine'}
-            </button>
-            {uploadStatus && (
-              <p className="text-sm font-medium text-center mt-2 text-[#166534]">{uploadStatus}</p>
-            )}
-          </form>
-        </div>
-      </motion.div>
+  const titleFont = theme === 'chocolate' ? 'font-serif italic' : 'font-sans font-black uppercase tracking-tighter';
 
-      {uploads.length > 0 && (
+  return (
+    <div className="max-w-6xl mx-auto space-y-12 pb-20 px-4 md:px-0 mt-8">
+      
+      {/* Sleek Header */}
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div className="space-y-2">
+          <div className="flex items-center gap-2">
+            <span className="px-3 py-1 bg-[var(--accent)] text-white text-[9px] font-black uppercase tracking-[0.2em] rounded-full">Secure Link</span>
+            <p className="text-[10px] text-[var(--muted)] font-bold uppercase tracking-[0.3em]">{new Date().toLocaleDateString()}</p>
+          </div>
+          <h1 className={`text-5xl md:text-7xl ${titleFont} text-[var(--foreground)]`}>
+            Uplink.
+          </h1>
+          <p className="text-lg text-[var(--muted)] font-medium max-w-xl leading-relaxed">
+            Initialize the data stream for neural processing. Our ecosystem validates your signal in real-time.
+          </p>
+        </div>
+        
+        <div className="flex items-center gap-4 bg-[var(--card-bg)] border border-[var(--border)] p-5 rounded-[2rem] shadow-sm">
+          <Database size={24} className="text-[var(--accent)]" />
+          <div>
+            <p className="text-[10px] font-black text-[var(--muted)] uppercase tracking-widest">Storage Status</p>
+            <p className="text-sm font-bold text-[var(--foreground)] tracking-tight whitespace-nowrap">Archives Synchronized</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          className="p-8 rounded-2xl border border-white/10 bg-[#0a0a0c]/50 shadow-xl"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          className="lg:col-span-2 p-12 rounded-[3.5rem] bg-[var(--card-bg)] border border-[var(--border)] shadow-sm relative overflow-hidden"
         >
-          <h3 className="text-sm font-bold text-white/50 uppercase tracking-wider mb-4">Historical Uploads</h3>
-          <div className="space-y-3">
-            {uploads.map(u => (
-              <div key={u.id} className="flex items-center justify-between p-4 rounded-xl bg-black/40 border border-white/5 shadow-inner">
-                <span className="text-white/80 font-medium text-sm">{u.file_name}</span>
-                <span className="text-white/30 text-xs">
-                  {formatDate(u.upload_date)}
-                </span>
+          <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--accent)] opacity-[0.03] blur-[60px]" />
+          
+          <form onSubmit={handleUpload} className="space-y-12">
+            <label className="group relative border-2 border-dashed border-[var(--border)] rounded-[3rem] p-24 text-center flex flex-col items-center justify-center hover:border-[var(--accent)] hover:bg-[var(--accent)]/[0.02] transition-all cursor-pointer">
+              <input name="csv" ref={fileRef} type="file" accept=".csv" required className="absolute inset-0 opacity-0 cursor-pointer" />
+              <div className="w-24 h-24 bg-[var(--background)] rounded-[2rem] flex items-center justify-center mb-8 group-hover:scale-110 transition-transform shadow-xl">
+                <Cloud size={32} className="text-[var(--accent)]" />
               </div>
+              <span className={`text-2xl font-bold text-[var(--foreground)] tracking-tight`}>Drop your signal here</span>
+              <span className="text-[var(--muted)] text-[10px] font-bold mt-3 uppercase tracking-widest">Maximum file size: 50MB // CSV Formats Only</span>
+            </label>
+            
+            <div className="flex flex-col items-center gap-8">
+              <button 
+                type="submit" 
+                disabled={isUploading} 
+                className="group relative px-16 py-5 bg-[var(--accent)] text-white font-black rounded-3xl tracking-[0.2em] transition-all hover:shadow-[0_0_30px_rgba(var(--accent-rgb),0.3)] disabled:opacity-50 uppercase text-xs"
+              >
+                <span className="relative z-10 flex items-center gap-3">
+                  {isUploading ? (
+                    <><div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" /> {uploadStatus}</>
+                  ) : 'Initialize Sync'}
+                </span>
+              </button>
+
+              <AnimatePresence>
+                {uploadResult && (
+                  <motion.div initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} className="w-full grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {[
+                      { label: 'Signal Quality', val: `${(uploadResult.accuracy * 100).toFixed(1)}%`, icon: <Zap size={14} />, color: 'var(--accent)' },
+                      { label: 'Growth Vector', val: uploadResult.prediction, icon: <TrendingUp size={14} />, color: 'var(--foreground)' },
+                      { label: 'Dominant Node', val: uploadResult.top_features[0].split('_')[0], icon: <Target size={14} />, color: 'var(--muted)' }
+                    ].map((item, i) => (
+                      <div key={i} className="p-8 rounded-[2.5rem] bg-black/5 border border-[var(--border)] flex flex-col gap-4">
+                        <div className="w-10 h-10 rounded-2xl bg-[var(--background)] flex items-center justify-center text-[var(--accent)] shadow-sm">
+                          {item.icon}
+                        </div>
+                        <div>
+                          <span className="text-[9px] uppercase tracking-[0.2em] font-black text-[var(--muted)] mb-1 block">{item.label}</span>
+                          <span className={`text-lg font-bold text-[var(--foreground)] tracking-tight`}>{item.val}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          </form>
+        </motion.div>
+
+        <div className="space-y-8">
+          <div className="flex items-center justify-between px-2">
+            <h3 className={`text-xs font-black text-[var(--muted)] uppercase tracking-[0.3em]`}>Intelligence History</h3>
+            <div className="h-[1px] flex-1 ml-6 bg-[var(--border)]" />
+          </div>
+          
+          <div className="space-y-4">
+            {uploads.slice(0, 8).map((u, i) => (
+              <motion.div 
+                key={u.id}
+                initial={{ opacity: 0, x: 10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: i * 0.05 }}
+                className="group p-6 rounded-[2rem] bg-[var(--card-bg)] border border-[var(--border)] flex items-center justify-between hover:border-[var(--accent)] hover:shadow-xl transition-all duration-500"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-2xl bg-[var(--background)] flex items-center justify-center text-[var(--muted)] group-hover:text-[var(--accent)] transition-all">
+                    <FileText size={20} />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-bold text-[var(--foreground)] transition-colors truncate max-w-[120px]">{u.file_name}</h4>
+                    <p className="text-[9px] font-bold text-[var(--muted)] mt-1 uppercase tracking-widest">{formatDate(u.upload_date)}</p>
+                  </div>
+                </div>
+                <ArrowUpRight size={18} className="text-[var(--muted)] group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              </motion.div>
             ))}
           </div>
-        </motion.div>
-      )}
+        </div>
+      </div>
     </div>
   );
 }
