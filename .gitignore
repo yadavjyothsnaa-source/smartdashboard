@@ -40,10 +40,13 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# SQLite database files
+# Machine Learning Models
+*.pkl
+
+# Project Specific
+/public/uploads/
+**/__pycache__/
+.pytest_cache/
 *.db
 *.db-shm
 *.db-wal
-
-# Machine Learning Models
-*.pkl

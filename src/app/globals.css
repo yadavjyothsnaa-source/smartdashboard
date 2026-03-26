@@ -50,11 +50,12 @@ body {
   --background: #081008; 
   --foreground: #ffffff; 
   --card-bg: rgba(10, 26, 10, 0.6); 
-  --border: rgba(26, 58, 26, 0.2); 
-  --accent: #166534; 
+  --border: rgba(255, 255, 255, 0.08); 
+  --accent: #10b981; 
   --accent-foreground: #ffffff;
   --sidebar-bg: #000000;
-  --muted: #4a7c59;
+  --muted: #a7f3d0;
+  --chart-line: #ffffff;
   font-family: var(--font-jakarta), sans-serif;
 }
 

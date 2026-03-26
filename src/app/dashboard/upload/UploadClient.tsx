@@ -3,7 +3,7 @@
 import { useState, useRef } from "react";
 import type { UploadedData } from "@/lib/db";
 import { motion, AnimatePresence } from "framer-motion";
-import { Cloud, FileText, CheckCircle2, AlertCircle, ArrowUpRight, Zap, Target, Database, TrendingUp } from "lucide-react";
+import { Cloud, FileText, Zap, Target, TrendingUp, ArrowUpRight, ShieldCheck } from "lucide-react";
 import { useTheme } from "@/context/ThemeContext";
 
 const formatDate = (dateString: string) => {
@@ -19,8 +19,16 @@ export default function UploadClient({ uploads: initialUploads }: { uploads: Upl
   const [uploadStatus, setUploadStatus] = useState<string | null>(null);
   const [isUploading, setIsUploading] = useState(false);
   const [uploadResult, setUploadResult] = useState<any>(null);
+  const [selectedFile, setSelectedFile] = useState<string | null>(null);
+  const [alert, setAlert] = useState<{ message: string; show: boolean }>({ message: '', show: false });
+  
   const fileRef = useRef<HTMLInputElement>(null);
   const { theme } = useTheme();
+
+  const handleAlert = (message: string) => {
+    setAlert({ message, show: true });
+    setTimeout(() => setAlert({ message: '', show: false }), 4000);
+  };
 
   const handleUpload = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -52,9 +60,7 @@ export default function UploadClient({ uploads: initialUploads }: { uploads: Upl
       } else {
         setUploadStatus("Constructing Intelligence...");
         
-        setTimeout(() => {
-          setUploadStatus("Extracting data points...");
-        }, 1200);
+        setTimeout(() => setUploadStatus("Extracting data points..."), 1200);
 
         setTimeout(() => {
           setUploadStatus(null);
@@ -68,7 +74,9 @@ export default function UploadClient({ uploads: initialUploads }: { uploads: Upl
             upload_date: new Date().toISOString()
           };
           setUploads(prev => [newUpload, ...prev]);
-        }, 2500);
+          setSelectedFile(null); // Reset
+          if (fileRef.current) fileRef.current.value = '';
+        }, 2200);
       }
     } catch (error) {
       setUploadStatus("Connection lost. Retrying later.");
@@ -76,62 +84,82 @@ export default function UploadClient({ uploads: initialUploads }: { uploads: Upl
     }
   };
 
-  const titleFont = theme === 'chocolate' ? 'font-serif italic' : 'font-sans font-black uppercase tracking-tighter';
+  const titleFont = theme === 'chocolate' ? 'font-serif italic' : 'font-sans font-bold uppercase tracking-[0.15em]';
 
   return (
-    <div className="max-w-6xl mx-auto space-y-12 pb-20 px-4 md:px-0 mt-8">
+    <div className="max-w-6xl mx-auto space-y-12 pb-32 px-4 md:px-0 mt-8">
       
       {/* Sleek Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-        <div className="space-y-2">
-          <div className="flex items-center gap-2">
-            <span className="px-3 py-1 bg-[var(--accent)] text-white text-[9px] font-black uppercase tracking-[0.2em] rounded-full">Secure Link</span>
+        <div className="space-y-3">
+          <div className="flex items-center gap-3">
+            <span className="px-3 py-1 bg-[var(--accent)] text-white text-[9px] font-bold uppercase tracking-[0.2em] rounded-full">Secure Link</span>
             <p className="text-[10px] text-[var(--muted)] font-bold uppercase tracking-[0.3em]">{new Date().toLocaleDateString()}</p>
           </div>
-          <h1 className={`text-5xl md:text-7xl ${titleFont} text-[var(--foreground)]`}>
+          <h1 className={`text-6xl md:text-8xl ${titleFont} text-[var(--foreground)]`}>
             Uplink.
           </h1>
-          <p className="text-lg text-[var(--muted)] font-medium max-w-xl leading-relaxed">
+          <p className="text-lg text-[var(--muted)] font-medium max-w-xl leading-relaxed mt-2 text-balance">
             Initialize the data stream for neural processing. Our ecosystem validates your signal in real-time.
           </p>
         </div>
-        
-        <div className="flex items-center gap-4 bg-[var(--card-bg)] border border-[var(--border)] p-5 rounded-[2rem] shadow-sm">
-          <Database size={24} className="text-[var(--accent)]" />
-          <div>
-            <p className="text-[10px] font-black text-[var(--muted)] uppercase tracking-widest">Storage Status</p>
-            <p className="text-sm font-bold text-[var(--foreground)] tracking-tight whitespace-nowrap">Archives Synchronized</p>
-          </div>
-        </div>
       </div>
+
+      {/* Internal Alert System */}
+      <AnimatePresence>
+        {alert.show && (
+          <motion.div 
+            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            className="fixed bottom-12 right-12 z-[9999] px-8 py-4 bg-[#8BE788] text-[#1a3a1a] rounded-3xl font-black text-xs uppercase tracking-widest shadow-2xl flex items-center gap-3 border-4 border-white/20 hover:scale-105 transition-transform cursor-pointer"
+            onClick={() => setAlert({ message: '', show: false })}
+          >
+            <ShieldCheck size={18} />
+            {alert.message}
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
-          className="lg:col-span-2 p-12 rounded-[3.5rem] bg-[var(--card-bg)] border border-[var(--border)] shadow-sm relative overflow-hidden"
+          className="lg:col-span-2 p-10 rounded-[3.5rem] bg-[var(--card-bg)] border border-[var(--border)] shadow-sm relative overflow-hidden"
         >
           <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--accent)] opacity-[0.03] blur-[60px]" />
           
           <form onSubmit={handleUpload} className="space-y-12">
-            <label className="group relative border-2 border-dashed border-[var(--border)] rounded-[3rem] p-24 text-center flex flex-col items-center justify-center hover:border-[var(--accent)] hover:bg-[var(--accent)]/[0.02] transition-all cursor-pointer">
-              <input name="csv" ref={fileRef} type="file" accept=".csv" required className="absolute inset-0 opacity-0 cursor-pointer" />
-              <div className="w-24 h-24 bg-[var(--background)] rounded-[2rem] flex items-center justify-center mb-8 group-hover:scale-110 transition-transform shadow-xl">
-                <Cloud size={32} className="text-[var(--accent)]" />
+            <label className="group relative border-2 border-dashed border-[var(--border)] rounded-[3rem] p-16 text-center flex flex-col items-center justify-center hover:border-[var(--accent)] hover:bg-[var(--accent)]/[0.02] transition-all cursor-pointer">
+              <input 
+                name="csv" 
+                ref={fileRef} 
+                type="file" 
+                accept=".csv" 
+                required 
+                onChange={(e) => setSelectedFile(e.target.files?.[0]?.name || null)}
+                className="absolute inset-0 opacity-0 cursor-pointer" 
+              />
+              <div className="w-20 h-20 bg-[var(--background)] rounded-[2rem] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-xl">
+                <Cloud size={28} className="text-[var(--accent)]" />
               </div>
-              <span className={`text-2xl font-bold text-[var(--foreground)] tracking-tight`}>Drop your signal here</span>
-              <span className="text-[var(--muted)] text-[10px] font-bold mt-3 uppercase tracking-widest">Maximum file size: 50MB // CSV Formats Only</span>
+              <span className={`text-2xl font-bold text-[var(--foreground)] tracking-tight`}>
+                {selectedFile ? selectedFile : 'Drop your signal here'}
+              </span>
+              <span className="text-[var(--muted)] text-[10px] font-bold mt-3 uppercase tracking-widest">
+                {selectedFile ? 'Payload Ready' : 'MAXIMUM FILE SIZE: 50MB // CSV FORMATS ONLY'}
+              </span>
             </label>
             
             <div className="flex flex-col items-center gap-8">
               <button 
                 type="submit" 
                 disabled={isUploading} 
-                className="group relative px-16 py-5 bg-[var(--accent)] text-white font-black rounded-3xl tracking-[0.2em] transition-all hover:shadow-[0_0_30px_rgba(var(--accent-rgb),0.3)] disabled:opacity-50 uppercase text-xs"
+                className="group relative px-10 py-4 bg-[var(--accent)] text-white font-black rounded-3xl tracking-[0.2em] transition-all hover:shadow-[0_0_20px_rgba(var(--accent-rgb),0.3)] disabled:opacity-50 uppercase text-[10px] hover:scale-[1.05] active:scale-95 shadow-lg"
               >
                 <span className="relative z-10 flex items-center gap-3">
                   {isUploading ? (
-                    <><div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" /> {uploadStatus}</>
+                    <><div className="w-3 h-3 border-2 border-white/30 border-t-white rounded-full animate-spin" /> {uploadStatus}</>
                   ) : 'Initialize Sync'}
                 </span>
               </button>
@@ -141,8 +169,8 @@ export default function UploadClient({ uploads: initialUploads }: { uploads: Upl
                   <motion.div initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} className="w-full grid grid-cols-1 md:grid-cols-3 gap-6">
                     {[
                       { label: 'Signal Quality', val: `${(uploadResult.accuracy * 100).toFixed(1)}%`, icon: <Zap size={14} />, color: 'var(--accent)' },
-                      { label: 'Growth Vector', val: uploadResult.prediction, icon: <TrendingUp size={14} />, color: 'var(--foreground)' },
-                      { label: 'Dominant Node', val: uploadResult.top_features[0].split('_')[0], icon: <Target size={14} />, color: 'var(--muted)' }
+                      { label: 'Growth Vector', val: uploadResult.trend || uploadResult.prediction, icon: <TrendingUp size={14} />, color: 'var(--foreground)' },
+                      { label: 'Dominant Node', val: uploadResult.top_features?.[0]?.split('_')[0] || 'Core', icon: <Target size={14} />, color: 'var(--muted)' }
                     ].map((item, i) => (
                       <div key={i} className="p-8 rounded-[2.5rem] bg-black/5 border border-[var(--border)] flex flex-col gap-4">
                         <div className="w-10 h-10 rounded-2xl bg-[var(--background)] flex items-center justify-center text-[var(--accent)] shadow-sm">
@@ -174,7 +202,8 @@ export default function UploadClient({ uploads: initialUploads }: { uploads: Upl
                 initial={{ opacity: 0, x: 10 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: i * 0.05 }}
-                className="group p-6 rounded-[2rem] bg-[var(--card-bg)] border border-[var(--border)] flex items-center justify-between hover:border-[var(--accent)] hover:shadow-xl transition-all duration-500"
+                onClick={() => handleAlert(`Linking to ${u.file_name} neural path...`)}
+                className="group p-6 rounded-[2rem] bg-[var(--card-bg)] border border-[var(--border)] flex items-center justify-between hover:border-[var(--accent)] hover:shadow-xl transition-all duration-500 cursor-pointer"
               >
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-2xl bg-[var(--background)] flex items-center justify-center text-[var(--muted)] group-hover:text-[var(--accent)] transition-all">

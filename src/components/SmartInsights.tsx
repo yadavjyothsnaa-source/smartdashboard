@@ -30,40 +30,40 @@ export default function SmartInsights() {
       });
   }, []);
 
-  const titleFont = theme === 'chocolate' ? 'font-serif italic' : 'font-sans font-black uppercase tracking-tighter';
+  const titleFont = theme === 'chocolate' ? 'font-serif italic' : 'font-sans font-bold uppercase tracking-[0.1em]';
 
   return (
-    <div className="mt-12 space-y-10">
-      <div className="flex items-center justify-between mb-12 border-b border-[var(--border)] pb-6 relative overflow-hidden">
+    <div className="mt-16 space-y-16">
+      <div className="flex items-center justify-between mb-16 border-b border-[var(--border)] pb-8 relative overflow-hidden">
         <div>
-          <h3 className={`text-4xl ${titleFont} text-[var(--foreground)] flex items-center gap-4`}>
+          <h3 className={`text-5xl ${titleFont} text-[var(--foreground)] flex items-center gap-6`}>
             Intelligence Hub
           </h3>
-          <p className="text-[10px] text-[var(--muted)] font-bold uppercase tracking-[0.3em] mt-2 ml-1">Live Sector Analysis</p>
+          <p className="text-[12px] text-[var(--muted)] font-black uppercase tracking-[0.5em] mt-3 ml-2 opacity-60">Live Sector Analysis</p>
         </div>
         
         {loading && (
-          <div className="flex items-center gap-3 font-bold text-[10px] text-[var(--accent)] animate-pulse uppercase tracking-[0.3em]">
-            <div className="w-2 h-2 rounded-full bg-[var(--accent)]" /> Syncing Signals...
+          <div className="flex items-center gap-4 font-black text-[10px] text-[var(--accent)] animate-pulse uppercase tracking-[0.4em]">
+            <div className="w-2.5 h-2.5 rounded-full bg-[var(--accent)]" /> Syncing Signals...
           </div>
         )}
       </div>
       
       {loading ? (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
           {[1, 2, 3].map(i => (
-            <div key={i} className="h-64 rounded-[3rem] bg-[var(--card-bg)] border border-[var(--border)] animate-pulse" />
+            <div key={i} className="h-72 rounded-[3.5rem] bg-[var(--card-bg)] border border-[var(--border)] animate-pulse" />
           ))}
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
           {insights.map((insight, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
-              className={`p-10 rounded-[3.5rem] bg-[var(--card-bg)] border border-[var(--border)] shadow-sm hover:shadow-2xl transition-all duration-700 relative group overflow-hidden`}
+              className={`p-12 rounded-[3.5rem] bg-[var(--card-bg)] border border-white/5 shadow-sm hover:shadow-2xl transition-all duration-700 relative group overflow-hidden`}
             >
               <div className={`absolute top-0 right-10 w-16 h-10 bg-[var(--accent)] rounded-b-3xl flex items-center justify-center text-white ${
                 insight.type === "positive" ? "bg-[var(--accent)]" :

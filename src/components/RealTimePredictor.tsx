@@ -43,14 +43,15 @@ export default function RealTimePredictor() {
         body: JSON.stringify(formData)
       });
       
-      if (!res.ok) throw new Error("Failed to fetch prediction");
+      if (!res.ok) {
+        const errorData = await res.json().catch(() => ({}));
+        throw new Error(errorData.error || `Server Error: ${res.status}`);
+      }
       
       const data = await res.json();
-      if (data.error) throw new Error(data.error);
-      
       setPrediction(data.predicted_revenue);
     } catch (err: any) {
-      setError(err.message || "An error occurred");
+      setError(err.message || "Could not reach AI bridge.");
     } finally {
       setLoading(false);
     }
@@ -89,21 +90,23 @@ export default function RealTimePredictor() {
       
       <form onSubmit={handlePredict} className="grid grid-cols-2 md:grid-cols-4 gap-6">
         {[
-          { label: 'Units Sold', name: 'Units_Sold', type: 'number' },
-          { label: 'Base Cost', name: 'Cost', type: 'number' },
-          { label: 'Logistics', name: 'Logistics_Cost', type: 'number' },
-          { label: 'Trend Level', name: 'Trend', type: 'select', options: [{v:0, l:'Low'}, {v:1, l:'Med'}, {v:2, l:'High'}] }
+          { label: 'Units Sold', name: 'Units_Sold', type: 'number', placeholder: '100' },
+          { label: 'Base Cost', name: 'Cost', type: 'number', placeholder: '5000' },
+          { label: 'Logistics', name: 'Logistics_Cost', type: 'number', placeholder: '500' },
+          { label: 'Trend Level', name: 'Trend', type: 'select', placeholder: 'Med', options: [{v:0, l:'Low'}, {v:1, l:'Med'}, {v:2, l:'High'}] }
         ].map((field) => (
-          <div key={field.name} className="space-y-2">
-            <label className="text-[10px] font-black text-[var(--muted)] uppercase tracking-widest ml-1">{field.label}</label>
+          <div key={field.name} className="space-y-4">
+            <label className="text-[9px] font-bold text-[var(--muted)] uppercase tracking-[0.2em] ml-1 block">
+              {field.label} <span className="opacity-40 italic lowercase ml-2">(eg: {field.placeholder})</span>
+            </label>
             {field.type === 'select' ? (
               <select 
                 name={field.name} 
                 value={(formData as any)[field.name]} 
                 onChange={handleChange} 
-                className="w-full bg-[var(--background)] border border-[var(--border)] rounded-2xl px-5 py-3 text-[var(--foreground)] font-bold text-sm outline-none focus:border-[var(--accent)] transition-all"
+                className="w-full bg-black/20 border border-white/10 rounded-2xl px-5 py-4 text-white font-bold text-sm outline-none focus:border-[var(--accent)] transition-all cursor-pointer appearance-none"
               >
-                {field.options?.map(o => <option key={o.v} value={o.v}>{o.l}</option>)}
+                {field.options?.map(o => <option key={o.v} value={o.v} className="bg-[#1a3a1a] text-white py-2">{o.l}</option>)}
               </select>
             ) : (
               <input 
@@ -111,34 +114,35 @@ export default function RealTimePredictor() {
                 name={field.name} 
                 value={(formData as any)[field.name]} 
                 onChange={handleChange} 
-                className="w-full bg-[var(--background)] border border-[var(--border)] rounded-2xl px-5 py-3 text-[var(--foreground)] font-bold text-sm outline-none focus:border-[var(--accent)] transition-all [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" 
+                className="w-full bg-black/20 border border-white/10 rounded-2xl px-5 py-4 text-white placeholder:opacity-40 font-bold text-sm outline-none focus:border-[var(--accent)] transition-all [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" 
               />
             )}
           </div>
         ))}
         
-        <div className="col-span-2 md:col-span-4 mt-6 flex items-center justify-between">
+        <div className="col-span-2 md:col-span-4 mt-8 flex items-center justify-between">
           <button 
             type="submit" 
             disabled={loading} 
-            className="group px-10 py-4 bg-[var(--foreground)] text-[var(--background)] rounded-3xl text-[10px] font-black tracking-[0.2em] transition-all hover:scale-[0.98] disabled:opacity-50 flex items-center gap-3 uppercase"
+            className="group px-12 py-4.5 bg-[var(--accent)] text-[#1a3a1a] rounded-[2rem] text-[11px] font-black tracking-[0.25em] transition-all hover:scale-[1.05] active:scale-95 disabled:opacity-50 flex items-center gap-3 uppercase shadow-xl shadow-emerald-900/10"
           >
             {loading ? (
-              <div className="w-4 h-4 border-2 border-[var(--background)]/30 border-t-[var(--background)] rounded-full animate-spin" />
-            ) : <Sparkles size={14} />}
-            {loading ? 'Processing...' : 'Generate Forecast'}
+              <div className="w-4 h-4 border-2 border-[#1a3a1a]/30 border-t-[#1a3a1a] rounded-full animate-spin" />
+            ) : <Sparkles size={16} />}
+            {loading ? 'Crunching...' : 'Generate Forecast'}
           </button>
           
           <AnimatePresence>
             {error && (
-              <motion.span 
+              <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0 }}
-                className="text-[10px] font-black text-red-500 uppercase tracking-widest bg-red-50 px-4 py-2 rounded-full border border-red-100"
+                className="flex items-center gap-2 text-[10px] font-bold text-red-500 uppercase tracking-widest bg-red-500/10 px-6 py-3 rounded-2xl border border-red-500/20"
               >
-                Signal Failure: {error}
-              </motion.span>
+                <Zap size={14} className="animate-pulse" />
+                Datalink Failed: {error}
+              </motion.div>
             )}
           </AnimatePresence>
         </div>

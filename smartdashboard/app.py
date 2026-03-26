@@ -305,6 +305,14 @@ def upload_file():
         conn = sqlite3.connect(DB_PATH)
         cursor = conn.cursor()
         
+        # Sync CSV data into Business_Data table for Dashboard visibility
+        try:
+            # Clear old data to show latest upload
+            cursor.execute("DELETE FROM Business_Data")
+            df.to_sql('Business_Data', conn, if_exists='append', index=False)
+        except Exception as db_sync_err:
+            print(f"Business_Data Sync Error: {db_sync_err}")
+
         cursor.execute("INSERT INTO uploaded_data (user_id, file_name, file_path) VALUES (?, ?, ?)", 
                       (user_id, filename, f"/uploads/{filename}"))
         upload_id = cursor.lastrowid
@@ -363,7 +371,7 @@ def get_sales_trend():
         query = """
         SELECT strftime('%m', Date) as month_num,
                SUM(Revenue) as revenue,
-               SUM(Profit) as profit
+               SUM(Net_Profit) as profit
         FROM Business_Data
         WHERE Date IS NOT NULL
         GROUP BY month_num
