@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Orbitron } from "next/font/google";
+import { ShieldCheck } from "lucide-react";
 
 const orbitron = Orbitron({ subsets: ["latin"], weight: ["700", "900"] });
 
@@ -15,34 +16,8 @@ export default function Navbar() {
     >
       <div className="flex items-center gap-5 cursor-pointer group">
         
-        {/* CSS 3D Cube Container */}
-        <div className="relative w-10 h-10 ml-2" style={{ perspective: "1000px" }}>
-          {/* Background glow to replace the drop-shadow */}
-          <div className="absolute inset-0 bg-[#10b981] opacity-40 blur-xl rounded-full" />
-          
-          <motion.div 
-            animate={{ 
-              rotateX: [45, 405],
-              rotateY: [45, 405],
-              y: [0, -5, 0]
-            }}
-            transition={{ 
-              rotateX: { duration: 4, ease: "linear", repeat: Infinity },
-              rotateY: { duration: 6, ease: "linear", repeat: Infinity },
-              y: { duration: 2, ease: "easeInOut", repeat: Infinity }
-            }}
-            whileHover={{ scale: 1.25, transition: { duration: 0.3 } }}
-            className="relative w-full h-full origin-center"
-            style={{ transformStyle: "preserve-3d" }}
-          >
-            {/* The 6 faces of the 3D Cube */}
-            <div className="absolute inset-0 border-[1.5px] border-[#34d399] bg-[#10b981]/10 flex items-center justify-center backdrop-blur-sm" style={{ transform: "rotateY(0deg) translateZ(20px)" }} />
-            <div className="absolute inset-0 border-[1.5px] border-[#047857] bg-[#10b981]/10 flex items-center justify-center backdrop-blur-sm" style={{ transform: "rotateY(180deg) translateZ(20px)" }} />
-            <div className="absolute inset-0 border-[1.5px] border-[#10b981] bg-[#10b981]/10 flex items-center justify-center backdrop-blur-sm" style={{ transform: "rotateY(90deg) translateZ(20px)" }} />
-            <div className="absolute inset-0 border-[1.5px] border-[#059669] bg-[#10b981]/10 flex items-center justify-center backdrop-blur-sm" style={{ transform: "rotateY(-90deg) translateZ(20px)" }} />
-            <div className="absolute inset-0 border-[1.5px] border-[#34d399] bg-[#10b981]/10 flex items-center justify-center backdrop-blur-sm" style={{ transform: "rotateX(90deg) translateZ(20px)" }} />
-            <div className="absolute inset-0 border-[1.5px] border-[#047857] bg-[#10b981]/10 flex items-center justify-center backdrop-blur-sm" style={{ transform: "rotateX(-90deg) translateZ(20px)" }} />
-          </motion.div>
+        <div className="relative w-10 h-10 flex items-center justify-center bg-[#10b981]/10 rounded-xl border border-[#10b981]/30 group-hover:bg-[#10b981]/20 transition-all duration-300">
+           <ShieldCheck className="text-[#10b981] drop-shadow-[0_0_8px_rgba(16,185,129,0.6)]" size={24} strokeWidth={2.5} />
         </div>
         
         <div className={`text-lg sm:text-2xl font-black tracking-wider uppercase drop-shadow-[0_0_10px_rgba(16,185,129,0.3)] ${orbitron.className}`}>
