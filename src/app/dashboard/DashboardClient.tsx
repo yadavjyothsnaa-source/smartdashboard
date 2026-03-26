@@ -233,13 +233,16 @@ export default function DashboardClient({ session, initialNotifications, initial
       <AnimatePresence>
         {alert.show && (
           <motion.div 
-            initial={{ opacity: 0, y: 50, scale: 0.9 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.9 }}
-            className="fixed bottom-12 right-12 z-[9999] px-8 py-4 bg-[#8BE788] text-[#1a3a1a] rounded-3xl font-black text-xs uppercase tracking-widest shadow-2xl flex items-center gap-3 border-4 border-white/20"
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 100 }}
+            className="fixed bottom-12 left-1/2 -translate-x-1/2 z-[9999] px-12 py-6 bg-[var(--accent)] text-white rounded-[2.5rem] font-bold text-sm tracking-normal shadow-2xl flex items-center gap-6 border-4 border-white/10 italic"
           >
-            <ShieldCheck size={18} />
-            {alert.message}
+            <ShieldCheck size={20} className="text-white brightness-125" />
+            <div>
+              <p className="text-[10px] font-bold uppercase tracking-[0.3em] opacity-40 mb-1">System Intelligence Node</p>
+              {alert.message}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

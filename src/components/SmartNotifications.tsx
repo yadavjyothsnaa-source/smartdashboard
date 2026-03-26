@@ -99,17 +99,19 @@ export default function SmartNotifications() {
                     alerts.map((alert) => (
                       <motion.div 
                         key={alert.id}
-                        initial={{ opacity: 0, x: -5 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        className={`p-6 rounded-[2rem] bg-[#f1ffe2]/10 border border-white/5 relative group transition-all hover:bg-[#f1ffe2]/20`}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className={`p-8 rounded-[2rem] bg-black/40 border-l-[6px] relative group transition-all hover:bg-black/50 ${alert.type === 'critical' ? 'border-red-500' : 'border-[var(--accent)]'}`}
                       >
-                        <div className={`absolute left-0 top-0 w-1 h-full bg-[var(--accent)] ${alert.type === 'critical' ? 'bg-red-600' : ''}`} />
-                        <p className="text-sm text-[var(--foreground)] leading-snug font-bold">
+                        <p className="text-base text-white leading-relaxed font-bold italic">
                           {alert.message}
                         </p>
-                        <span className="text-[8px] font-black text-[var(--muted)] uppercase tracking-widest mt-3 block opacity-40">
-                          Priority: {alert.type}
-                        </span>
+                        <div className="flex items-center gap-3 mt-4 opacity-40">
+                             <div className={`w-1.5 h-1.5 rounded-full ${alert.type === 'critical' ? 'bg-red-500' : 'bg-[var(--accent)]'} animate-pulse`} />
+                             <span className="text-[9px] font-bold text-white uppercase tracking-[0.2em]">
+                               Priority: {alert.type}
+                             </span>
+                        </div>
                       </motion.div>
                     ))
                   )}

@@ -116,33 +116,33 @@ export default function ReportsClient({ session }: { session: any }) {
         className="p-10 rounded-[3rem] bg-[var(--card-bg)] border border-white/10 shadow-sm relative overflow-hidden group backdrop-blur-xl"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-           <div className="p-8 bg-[var(--accent)] text-white rounded-[2rem] shadow-xl relative overflow-hidden group/card hover:scale-[1.01] transition-transform duration-500">
-             <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
-             <div className="flex items-center gap-3 mb-6 opacity-60 relative z-10">
-               <Cpu size={16} />
-               <h4 className="text-[8px] font-black uppercase tracking-widest">Active Predictions</h4>
-             </div>
-             <p className="text-4xl font-black tracking-tighter relative z-10 italic">{predictions.length}</p>
-             <p className="text-[8px] font-black uppercase tracking-widest mt-3 opacity-40 relative z-10 italic">Secure Signal Logs</p>
+            <div className="p-10 bg-[var(--accent)] text-white rounded-[2.5rem] shadow-2xl relative overflow-hidden group/card hover:scale-[1.01] transition-transform duration-500">
+              <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent pointer-events-none" />
+              <div className="flex items-center gap-4 mb-8 opacity-100 relative z-10 text-white">
+                <Cpu size={18} strokeWidth={3} className="text-white brightness-125" />
+                <h4 className="text-[10px] font-bold uppercase tracking-[0.3em]">Active Predictions</h4>
+              </div>
+              <p className="text-5xl font-bold tracking-normal relative z-10 italic text-white drop-shadow-sm">{predictions.length}</p>
+              <p className="text-[10px] font-bold uppercase tracking-[0.3em] mt-4 opacity-70 relative z-10 italic text-white">Secure Signal Logs</p>
+            </div>
+            <div className={`p-10 ${theme === 'matcha' ? 'bg-black/40' : 'bg-black/20'} rounded-[2.5rem] border border-white/10 group transition-all duration-500 hover:scale-[1.01]`}>
+              <div className="flex items-center gap-4 mb-8 text-white">
+                <Clock size={18} strokeWidth={3} className="text-white brightness-125" />
+                <h4 className="text-[10px] font-bold uppercase tracking-[0.3em]">History Span</h4>
+              </div>
+              <p className="text-5xl font-bold text-white tracking-normal italic drop-shadow-sm">{salesData.length} M</p>
+              <p className="text-[10px] font-bold uppercase tracking-[0.3em] mt-4 text-white opacity-70 italic">Aggregated Cycles</p>
+            </div>
+         </div>
+         
+         <div className="space-y-8">
+           <div className="flex items-center justify-between px-2">
+             <h3 className="text-[10px] font-bold text-[var(--muted)] uppercase tracking-[0.4em] flex items-center gap-4 opacity-60">
+               <Database size={14} />
+               Intel Activity Log
+             </h3>
+             <div className="h-[1px] flex-1 ml-10 bg-[var(--border)] opacity-20" />
            </div>
-           <div className={`p-8 ${theme === 'forest' ? 'bg-green-950/20' : 'bg-[#f1ffe2]/20'} rounded-[2rem] border border-white/5 group ${theme === 'forest' ? 'hover:bg-green-900/40' : 'hover:bg-[#f1ffe2]/40'} transition-all duration-500 hover:scale-[1.01]`}>
-             <div className="flex items-center gap-3 mb-6 text-[var(--muted)] opacity-60">
-               <Clock size={16} />
-               <h4 className="text-[8px] font-black uppercase tracking-widest font-black">History Span</h4>
-             </div>
-             <p className="text-4xl font-black text-[var(--foreground)] tracking-tighter italic">{salesData.length} M</p>
-             <p className="text-[8px] font-black uppercase tracking-widest mt-3 text-[var(--muted)] opacity-40 italic">Aggregated Cycles</p>
-           </div>
-        </div>
-        
-        <div className="space-y-6">
-          <div className="flex items-center justify-between px-2">
-            <h3 className="text-[9px] font-black text-[var(--muted)] uppercase tracking-[0.3em] flex items-center gap-3 opacity-40">
-              <Database size={12} />
-              Intel Activity Log
-            </h3>
-            <div className="h-[1px] flex-1 ml-6 bg-black/5" />
-          </div>
 
           <div className="space-y-3">
             {predictions.length === 0 ? (
@@ -162,8 +162,12 @@ export default function ReportsClient({ session }: { session: any }) {
                     </div>
                   </div>
                   <div className="text-right">
-                    <p className="text-[var(--accent)] font-black text-xs tracking-tight italic">₹{p.result?.forecast_next_period?.toLocaleString() || "0"}</p>
-                    <p className="text-[8px] text-[var(--muted)] font-black uppercase tracking-widest opacity-40 italic">Acc Index: {p.result?.confidence || "0%"}</p>
+                    <p className="text-[var(--accent)] font-bold text-sm tracking-normal italic">
+                      {p.result?.forecast_next_period || "0"}
+                    </p>
+                    <p className="text-[10px] text-[var(--muted)] font-bold uppercase tracking-[0.2em] opacity-60 italic">
+                      Acc Index: {p.result?.confidence || "0%"}
+                    </p>
                   </div>
                 </div>
               ))
